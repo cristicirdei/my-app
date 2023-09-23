@@ -23,21 +23,7 @@ localStorage.removeItem("user");
 const Header = () => {
   return (
     <div className="header">
-      {user.auth === true ? (
-        <div className="navlinks" onClick={() => handleLogOut()}>
-          {" "}
-          <Link to="/login">Sign Out</Link>
-        </div>
-      ) : (
-        <>
-          <div className="navlinks" onClick={() => window.location.reload()}>
-            <Link to="/login">Log In</Link>
-          </div>
-          <div className="navlinks" onClick={() => window.location.reload()}>
-            <Link to="/join">Sign Up</Link>
-          </div>
-        </>
-      )}
+      <h1>cristi cîrdei</h1>
     </div>
   );
 };

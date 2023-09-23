@@ -1,0 +1,361 @@
+@import "Master";
+
+@font-face {
+    font-family: mainFont;
+    src: url("../resources/fonts/Athelas-Regular.ttf");
+}
+
+@font-face {
+    font-family: bookTitleFont;
+    src: url("../resources/fonts/Vollkorn-Bold.ttf");
+}
+
+@font-face {
+    font-family: bookSubTitleFont;
+    src: url("../resources/fonts/Vollkorn-Semibold.ttf");
+}
+
+@font-face {
+    font-family: bookDetailsFont;
+    src: url("../resources/fonts/Vollkorn-Regular.ttf");
+}
+
+@font-face {
+    font-family: Font2;
+    src: url("../resources/fonts/Sinistre-SÔÇáCaroline.otf");
+}
+
+.books-page-title {
+    font-size: 4rem;
+    font-family: MainFont;
+    padding: 2rem;
+    border: none;
+    background: none;
+}
+
+.favourites {
+    height: 30rem;
+    width: 96%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+
+    h1 {
+        font-size: 7rem;
+        font-family: Font2;
+    }
+
+    .container {
+        display: flex;
+        gap: 2rem;
+        align-content: space-around;
+        margin-top: -3.2rem;
+
+
+        .favourite:hover {
+            margin-top: -2rem;
+            transform: rotate(0deg);
+            position: relative;
+            top: 0;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .favourite {
+            width: fit-content;
+            height: 215px;
+            position: inherit;
+
+
+            .img {
+                height: 15rem;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+
+                border-top-left-radius: 2px;
+                border-bottom-left-radius: 2px;
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+
+            .shadow {
+                height: 15rem;
+                width: 0.5rem;
+                position: relative;
+                top: -15.22rem;
+                left: 0rem;
+
+                background: -webkit-linear-gradient(-40deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.15));
+            }
+
+            .light {
+                height: 15rem;
+                width: 0.07rem;
+                position: relative;
+                top: -30.22rem;
+                left: 0.55rem;
+
+                background: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 0.5));
+            }
+
+        }
+
+
+
+        .hoverfavourite:hover {
+            cursor: pointer;
+        }
+
+        .hoverfavourite:before {
+            content: attr(data-hover);
+            visibility: hidden;
+            opacity: 0;
+            width: 150px;
+            height: fit-content;
+            text-align: center;
+            border-radius: 5px;
+            padding: 0 4px;
+            transition: opacity 1s ease-in-out;
+
+            font-weight: 500;
+
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 132%;
+        }
+
+        .hoverfavourite:after {
+            content: attr(data-hover-after);
+            visibility: hidden;
+            opacity: 0;
+            width: 150px;
+            height: fit-content;
+            text-align: center;
+            border-radius: 5px;
+            padding: 0 4px;
+            transition: opacity 1s ease-in-out;
+
+
+            font-weight: 500;
+            font-size: 0.8rem;
+            color: gray;
+
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 149%;
+        }
+
+        .hoverfavourite:hover:before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .hoverfavourite:hover .hoverfavourite:not(:hover) {
+            opacity: 0.5;
+            background-color: aqua;
+
+        }
+
+        .hoverfavourite:hover:after {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+
+}
+
+.favourite:nth-of-type(1) {
+    transform: rotate(-15deg);
+    margin-top: 2rem;
+    margin-right: -2.5rem;
+}
+
+.favourite:nth-of-type(2) {
+    transform: rotate(0deg);
+}
+
+.favourite:nth-of-type(3) {
+    transform: rotate(15deg);
+    margin-top: 2rem;
+    margin-left: -2.5rem;
+}
+
+
+
+.year-books {
+    height: 33rem;
+    width: 96%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: flex-start;
+
+    transition: box-shadow 1s;
+    transition: border 1s;
+    transition: background-color 1s;
+
+    .container {
+        display: flex;
+        gap: 2rem;
+        align-content: space-around;
+    }
+
+    /* From https://css.glass 
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.6px);
+    -webkit-backdrop-filter: blur(6.6px);
+    border: 1px solid rgba(255, 255, 255, 0.18);*/
+
+    .title {
+        font-family: MainFont;
+        font-size: 3rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .display {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 87.5rem;
+        transition: width 1s;
+        height: 430px;
+
+
+        .library {
+            width: fit-content;
+            height: fit-content;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            border: 4px solid rgb(248, 248, 248);
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+
+
+
+            .month {
+                border: 4px solid rgb(248, 248, 248);
+                width: 5rem;
+                height: 5rem;
+                display: flex;
+                flex-direction: column;
+                align-content: space-between;
+                justify-content: space-between;
+                padding: 0;
+
+                .tag {
+                    background-color: #c0c0c0;
+                    font-size: 0.7rem;
+                    padding: 1px 3px;
+                    border-radius: 5px;
+                    position: relative;
+                    top: -0.6rem;
+                    left: 1.5rem;
+                    height: fit-content;
+                    width: fit-content;
+                }
+
+                .books {
+                    display: flex;
+                    padding: 0;
+                    margin: 0;
+                    width: 100%;
+                    align-items: flex-end;
+                    justify-content: start;
+                }
+
+                .book {
+                    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+
+                    background-color: rgb(178, 86, 222);
+                    width: 0.6rem;
+                    height: 3rem;
+                }
+
+                .hovertext {
+                    color: rgb(178, 86, 222);
+                    font-size: 0.8rem;
+                }
+
+                .book:hover {
+                    cursor: pointer;
+                    margin-bottom: 0.3rem;
+                    margin-right: 0.2rem;
+                    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.6);
+                }
+            }
+
+
+        }
+
+
+    }
+
+    .move-to-side {
+        width: 16rem;
+        margin-left: 1rem;
+        transition: width 1s;
+    }
+
+
+}
+
+.fade {
+    box-shadow: none;
+    border: none;
+    background: none;
+
+    transition: box-shadow 1s;
+    transition: border 1s;
+    transition: background-color 1s;
+}
+
+.stats {
+    height: fit-content;
+    width: 96%;
+    display: flex;
+    align-self: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    align-items: flex-start;
+    justify-content: stretch;
+
+    margin: 2rem 0;
+    padding: 0;
+
+    h1 {
+        font-family: MainFont;
+        font-size: 3rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .nav {
+        width: 100%;
+        padding: 0 2.5rem 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+            display: flex;
+            gap: 2rem;
+            opacity: 0.6;
+
+            span:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .content {
+        width: 95%;
+        height: 90%;
+        padding-top: 2rem;
+    }
+}

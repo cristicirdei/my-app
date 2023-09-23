@@ -6,31 +6,17 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // styles
 import "./styles/Layout.scss";
 import "./styles/App.scss";
-import "./styles/Activity.scss";
 import "./styles/Master.scss";
-import "./styles/Guide.scss";
-import "./styles/Organization.scss";
-import "./styles/ActivityView.scss";
-import "./styles/Resources.scss";
-import "./styles/Check.scss";
-import "./styles/SetUp.scss";
-import "./styles/Auth.scss";
 import "./styles/Landing.scss";
+import "./styles/BookView.scss";
+import "./styles/Books.scss";
+import "./styles/BooksResponsive.scss";
+import "./styles/Stats.scss";
 
 // components
-import Menu from "./components/molecules/Menu";
-import Header from "./components/molecules/Header";
 import LandingPage from "./pages/LandingPage";
-import Activities from "./pages/Activities";
-import Competencies from "./pages/Competencies";
-import Guide from "./pages/Guide";
-import Organization from "./pages/Organization";
-import ActivityView from "./pages/ActivityView";
-import CompetencyView from "./pages/CompetencyView";
-import SetUpProject from "./pages/SetUpProject";
-import Login from "./pages/Login";
-import Join from "./pages/Join";
-import HowTo from "./pages/HowTo";
+import DesignSystem from "./pages/DesignSystem";
+import Books from "./pages/Books";
 
 function App() {
   function parseJwt(token) {
@@ -51,7 +37,7 @@ function App() {
 
   useEffect(() => {
     let token = localStorage.getItem("token");
-    console.log(token);
+
     if (token !== null && token !== undefined) {
       const decoded = parseJwt(token);
 
@@ -63,41 +49,14 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const userAuth = JSON.parse(localStorage.getItem("user"));
-  const hasProject = JSON.parse(localStorage.getItem("user"))?.project;
-
   return (
     <>
       <BrowserRouter>
-        <Header />
-        {userAuth ? <Menu /> : ""}
-        {userAuth ? (
-          <div className="col-10">
-            <Routes>
-              <Route path="/home" element={<LandingPage />} />
-              <Route path="/guide" element={<Guide />} />
-              <Route path="/howto" element={<HowTo />} />
-
-              <Route path="/activities" element={<Activities />} />
-              <Route path="/activity/:id" element={<ActivityView />} />
-              <Route path="/competencies" element={<Competencies />} />
-              <Route path="/competency/:id" element={<CompetencyView />} />
-              <Route path="/organization" element={<Organization />} />
-            </Routes>
-          </div>
-        ) : (
-          ""
-        )}
         <div className="col-12">
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            {userAuth && !hasProject ? (
-              <Route path="/project" element={<SetUpProject />} />
-            ) : (
-              ""
-            )}
-            <Route path="/login" element={<Login></Login>} />
-            <Route path="/join" element={<Join />} />
+            <Route path="/ds" element={<DesignSystem />} />
+            <Route path="/books" element={<Books />} />
           </Routes>
         </div>
       </BrowserRouter>

@@ -21,3 +21,143 @@ $shadowColor3: rgba(193, 193, 193, 0.6);
     border-radius: 8px;
     border: 1px solid rgba(128, 128, 128, 0.168);
 }
+
+svg {
+    fill: currentColor;
+    height: 4rem;
+    max-width: 66vmin;
+    transform-origin: center;
+    width: 4rem;
+}
+
+.sticker {
+    height: 3.1rem;
+    width: 3.1rem;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    border-style: dashed;
+
+    background: rgba(255, 255, 255, 0.68);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    // border: 1px solid rgba(255, 255, 255, 0.18);
+
+    img:nth-of-type(1) {
+        height: 3rem;
+        position: absolute;
+        opacity: 0.5;
+    }
+
+    img:nth-of-type(2) {
+        height: 3.5rem;
+        position: absolute;
+        transform: rotate(20deg);
+        opacity: 0.5;
+    }
+
+    img:nth-of-type(3) {
+        height: 1.4rem;
+        position: absolute;
+    }
+}
+
+.atf {
+    background-color: rgba(127, 255, 212, 0.1);
+    color: #7fffd4;
+}
+
+.yf {
+    background-color: rgba(255, 251, 127, 0.1);
+    color: #fffb7f;
+}
+
+.rr {
+    background-color: rgba(255, 176, 127, 0.1);
+    color: #ffb07f;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.impression {
+    height: 1.5rem;
+    width: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 7px;
+
+    font-size: 0.9rem;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 7px;
+}
+
+.loved {
+    color: #ff0000;
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.liked,
+.disliked {
+    color: rgb(255, 213, 0);
+    background-color: rgba(255, 213, 0, 0.1);
+}
+
+.label {
+    width: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #c2c2c23e;
+    color: #8b8b8b;
+    font-weight: 500;
+    font-size: medium;
+    font-size: 0.9rem;
+}
+
+.LGBTQ p {
+    background: -webkit-linear-gradient(0deg, #FDAFC7, #75D5EB, #603814, #E40303, #FF8C00, #008026, #24408E, #732982);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hovertext {
+    position: relative;
+}
+
+.hovertext:hover {
+    cursor: pointer;
+}
+
+.hovertext:before {
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity: 0;
+    width: 140px;
+    height: fit-content;
+    text-align: center;
+    border-radius: 5px;
+    padding: 0 4px;
+    transition: opacity 1s ease-in-out;
+
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-weight: 500;
+
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 110%;
+}
+
+.hovertext:hover:before {
+    opacity: 1;
+    visibility: visible;
+}

@@ -17,7 +17,8 @@ const Library = ({ data }) => {
     "Dec",
   ];
 
-  useEffect(() => {
+  {
+    /*useEffect(() => {
     $(".month .book:nth-of-type(4n+0)")
       .css("background-color", "rgb(200, 86, 248)")
       .css("width", "0.6rem")
@@ -37,7 +38,8 @@ const Library = ({ data }) => {
       .css("background-color", "rgb(178, 86, 222)")
       .css("width", "0.6rem")
       .css("height", "3rem");
-  });
+  });*/
+  }
 
   const books_per_month = [];
   months.map((month, index) =>

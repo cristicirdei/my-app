@@ -47,68 +47,62 @@ const Genres = ({ data }) => {
 
   return data.type === "meta" ? (
     <div className="meta-genres">
-      <h2>Genres</h2>
       <div id="pipes">
-        <div className="genre">
+        <div className="genre" id="fiction">
+          <h2>Fiction</h2>
           <div
             className="pipe"
-            id="fiction"
+            data-number={meta_genres[0].number}
             style={{
-              height:
+              width:
                 windowSize.current[0] >= 840
                   ? meta_genres[0].number + "rem"
                   : (meta_genres[0].number * 60) / 100 + "rem",
             }}
-          >
-            {meta_genres[0].number}
-          </div>
-          <p>Fiction</p>
+          ></div>
+          <h2>{meta_genres[0].number}</h2>
         </div>
-        <div className="genre">
+        <div className="genre" id="non-fiction">
+          <h2>Non-Fiction</h2>
           <div
             className="pipe"
-            id="non-fiction"
             style={{
-              height:
+              width:
                 windowSize.current[0] >= 840
                   ? meta_genres[1].number + "rem"
                   : (meta_genres[1].number * 60) / 100 + "rem",
             }}
-          >
-            {meta_genres[1].number}
-          </div>
-          <p>Non-Fiction</p>
+          ></div>
+          <h2>{meta_genres[1].number}</h2>
         </div>
-        <div className="genre">
+
+        <div className="genre" id="poetry">
+          <h2>Poetry</h2>
           <div
             className="pipe"
-            id="poetry"
             style={{
-              height:
+              width:
                 windowSize.current[0] >= 840
                   ? meta_genres[2].number + "rem"
                   : (meta_genres[2].number * 60) / 100 + "rem",
             }}
-          >
-            {meta_genres[2].number}
-          </div>
-          <p>Poetry</p>
+          ></div>
+          <h2>{meta_genres[2].number}</h2>
         </div>
       </div>
     </div>
   ) : (
     <div className="differential-genres">
-      <h2>Sub-Genres</h2>
       <div id="dif-genres">
         {diff_genres
           .filter((g) => g.number > 2)
           .map((g, index) => (
             <div className="genre-line" key={index}>
-              <div className="g-name">{g.name}</div>
               <div
                 className="line"
                 style={{ width: g.number + 0 + "rem" }}
               ></div>
+              <div className="g-name">{g.name}</div>
             </div>
           ))}
       </div>

@@ -12,11 +12,13 @@ import "./styles/BookView.scss";
 import "./styles/Books.scss";
 import "./styles/BooksResponsive.scss";
 import "./styles/Stats.scss";
+import "./styles/BooksReplay.scss";
 
 // components
 import LandingPage from "./pages/LandingPage";
 import DesignSystem from "./pages/DesignSystem";
 import Books from "./pages/Books";
+import BooksReplay2023 from "./pages/BooksReplay2023";
 
 function App() {
   function parseJwt(token) {
@@ -57,6 +59,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/ds" element={<DesignSystem />} />
             <Route path="/books" element={<Books />} />
+            <Route path="/booksreplay2023" element={<BooksReplay2023 />} />
           </Routes>
         </div>
       </BrowserRouter>

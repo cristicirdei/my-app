@@ -21,6 +21,7 @@ const reWriteData = (data) => {
 
 const DonutChart = ({ data }) => {
   const chart_data = reWriteData(data);
+  console.log(data);
 
   let conic_gradient = "conic-gradient(";
 
@@ -39,20 +40,24 @@ const DonutChart = ({ data }) => {
 
   return (
     <div className="pie-container">
-      <h2>{data.title}</h2>
       <div
         className="donut"
         style={{
           background: conic_gradient,
         }}
       >
-        <div className="inner-circle"></div>
+        <div
+          className="inner-circle"
+          style={{ backgroundColor: data.dataset.innerColor }}
+        ></div>
       </div>
       <div id="legend">
         {data.labels.map((label, index) => (
           <p
             key={index}
-            style={{ backgroundColor: data.dataset.labelColor[index] }}
+            style={{
+              color: data.dataset.labelColor[index],
+            }}
           >
             {label + " · " + data.dataset.data[index]}
           </p>

@@ -46,10 +46,6 @@ const Timeline = ({ data }) => {
   const [showTitles, setShowTitles] = useState(false);
   const windowSize = useRef([window.innerWidth, window.innerHeight]);
 
-  if (windowSize.current[0] < 840) {
-    console.log("smaller", windowSize.current[0], windowSize.current[1]);
-  }
-
   const first_half = [];
   const second_half = [];
   books_of_the_year.map((book) =>
@@ -119,13 +115,18 @@ const Timeline = ({ data }) => {
 
         <tbody>
           {first_half.map((book, index) => (
-            <tr>
+            <tr
+              className={
+                getWeeks(book)[1] > 12 && getWeeks(book)[1] <= 24
+                  ? "title-to-left"
+                  : ""
+              }
+            >
               {Array(24)
                 .fill(0)
                 .map((x, index) => (
                   <td
                     key={index}
-                    data-title={showTitles ? book.title : ""}
                     className={
                       index + 1 === getWeeks(book)[0] &&
                       index + 1 === getWeeks(book)[1]
@@ -139,7 +140,18 @@ const Timeline = ({ data }) => {
                         ? "line"
                         : ""
                     }
-                  ></td>
+                  >
+                    <p className="shown-title">
+                      {showTitles &&
+                      ((index + 2 === getWeeks(book)[0] &&
+                        getWeeks(book)[1] > 12 &&
+                        getWeeks(book)[1] <= 24) ||
+                        (index === getWeeks(book)[1] &&
+                          getWeeks(book)[1] <= 12))
+                        ? book.title
+                        : ""}
+                    </p>
+                  </td>
                 ))}
             </tr>
           ))}
@@ -159,7 +171,13 @@ const Timeline = ({ data }) => {
 
         <tbody>
           {second_half.map((book, index) => (
-            <tr>
+            <tr
+              className={
+                getWeeks(book)[1] > 36 && getWeeks(book)[1] <= 48
+                  ? "title-to-left"
+                  : ""
+              }
+            >
               {Array(24)
                 .fill(0)
                 .map((x, index) => (
@@ -169,24 +187,39 @@ const Timeline = ({ data }) => {
                     className={
                       index + 25 === getWeeks(book)[0] &&
                       index + 25 === getWeeks(book)[1]
-                        ? "c-line line"
+                        ? "c-line line sh-tlt-af"
                         : index + 25 === getWeeks(book)[0]
                         ? "s-line line"
                         : index + 25 === getWeeks(book)[1]
-                        ? "e-line line"
+                        ? "e-line line sh-tlt-af"
                         : index + 25 > getWeeks(book)[0] &&
                           index + 25 < getWeeks(book)[1]
                         ? "line"
                         : ""
                     }
-                  ></td>
+                  >
+                    <p className="shown-title">
+                      {showTitles &&
+                      ((index + 26 === getWeeks(book)[0] &&
+                        getWeeks(book)[1] > 36 &&
+                        getWeeks(book)[1] <= 48) ||
+                        (index + 24 === getWeeks(book)[1] &&
+                          getWeeks(book)[1] <= 36))
+                        ? book.title
+                        : ""}
+                    </p>
+                  </td>
                 ))}
             </tr>
           ))}
 
           <tr>
-            <td colSpan={8}>
-              <p id="show-titles" onClick={(e) => setShowTitles(!showTitles)}>
+            <td colSpan={48}>
+              <p
+                id="show-titles"
+                style={{ fontSize: "0.8rem", marginTop: "0.5rem" }}
+                onClick={(e) => setShowTitles(!showTitles)}
+              >
                 Show titles
               </p>
             </td>

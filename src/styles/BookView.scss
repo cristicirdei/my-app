@@ -28,12 +28,7 @@
     border-radius: 10px;
     display: flex;
 
-    /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(6.6px);
-    -webkit-backdrop-filter: blur(6.6px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background-color: #E5E4E2;
 
     .close {
         opacity: 0.6;
@@ -136,7 +131,7 @@
         .info {
             display: flex;
             justify-content: space-around;
-            margin-left: 1rem;
+            //margin-left: 1rem;
             font-family: bookDetailsFont;
 
             padding-top: 0.3rem;
@@ -190,7 +185,7 @@
         }
 
         .genres {
-            margin-left: 1rem;
+            // margin-left: 1rem;
             display: flex;
             flex-direction: row;
             gap: 0.2rem;

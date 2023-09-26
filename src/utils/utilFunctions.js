@@ -26,10 +26,6 @@ export const getPagesPerMonth = (books_) => {
   const books = structuredClone(books_);
   let pages_per_month = new Array(12).fill(0);
 
-  books.map((b, index) => {
-    console.log(index, b.title);
-  });
-
   books.splice(5, 1);
   books.splice(7, 1);
 
@@ -37,8 +33,6 @@ export const getPagesPerMonth = (books_) => {
     pages_per_month[parseInt(b.read[b.read.length - 1].end.slice(5, 7)) - 1] =
       pages_per_month[parseInt(b.read[b.read.length - 1].end.slice(5, 7)) - 1] +
       b.length;
-
-    console.log(index, b.title);
 
     return pages_per_month;
   });

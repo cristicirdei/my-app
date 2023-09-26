@@ -185,137 +185,12 @@
 
 
 
-.year-books {
-    height: 33rem;
-    width: 96%;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    align-items: flex-start;
 
-    transition: box-shadow 1s;
-    transition: border 1s;
-    transition: background-color 1s;
-
-    .container {
-        display: flex;
-        gap: 2rem;
-        align-content: space-around;
-    }
-
-    /* From https://css.glass 
-    background: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(6.6px);
-    -webkit-backdrop-filter: blur(6.6px);
-    border: 1px solid rgba(255, 255, 255, 0.18);*/
-
-    .title {
-        font-family: MainFont;
-        font-size: 3rem;
-        padding: 0.5rem 1rem;
-    }
-
-    .display {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 87.5rem;
-        transition: width 1s;
-        height: 430px;
-
-
-        .library {
-            width: fit-content;
-            height: fit-content;
-            display: grid;
-            grid-template-columns: auto auto auto;
-            border: 4px solid rgb(248, 248, 248);
-
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-
-
-
-
-            .month {
-                border: 4px solid rgb(248, 248, 248);
-                width: 5rem;
-                height: 5rem;
-                display: flex;
-                flex-direction: column;
-                align-content: space-between;
-                justify-content: space-between;
-                padding: 0;
-
-                .tag {
-                    background-color: #c0c0c0;
-                    font-size: 0.7rem;
-                    padding: 1px 3px;
-                    border-radius: 5px;
-                    position: relative;
-                    top: -0.6rem;
-                    left: 1.5rem;
-                    height: fit-content;
-                    width: fit-content;
-                }
-
-                .books {
-                    display: flex;
-                    padding: 0;
-                    margin: 0;
-                    width: 100%;
-                    align-items: flex-end;
-                    justify-content: start;
-                }
-
-                .book {
-                    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
-
-                    background-color: rgb(178, 86, 222);
-                    width: 0.6rem;
-                    height: 3rem;
-                }
-
-                .hovertext {
-                    color: rgb(178, 86, 222);
-                    font-size: 0.8rem;
-                }
-
-                .book:hover {
-                    cursor: pointer;
-                    margin-bottom: 0.3rem;
-                    margin-right: 0.2rem;
-                    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.6);
-                }
-            }
-
-
-        }
-
-
-    }
-
-    .move-to-side {
-        width: 16rem;
-        margin-left: 1rem;
-        transition: width 1s;
-    }
-
-
-}
-
-.fade {
-    box-shadow: none;
-    border: none;
-    background: none;
-
-    transition: box-shadow 1s;
-    transition: border 1s;
-    transition: background-color 1s;
-}
 
 .stats {
+    margin-top: 90rem;
+    background-color: aliceblue;
+
     height: fit-content;
     width: 96%;
     display: flex;
@@ -326,8 +201,8 @@
     align-items: flex-start;
     justify-content: stretch;
 
-    margin: 2rem 0;
-    padding: 0;
+    // margin: 2rem 0;
+    // padding: 0;
 
     h1 {
         font-family: MainFont;

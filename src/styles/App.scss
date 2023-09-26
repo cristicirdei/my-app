@@ -1,5 +1,9 @@
 @import "Master";
 
+html {
+    width: 100%;
+}
+
 .page,
 body {
     padding: 2rem 2rem;
@@ -224,6 +228,7 @@ body {
 html:not([data-scroll='0']) body {
     padding: 0;
     padding-top: 35px;
+
 }
 
 /* Switch to fixed positioning, and stick the header to the top of the page */

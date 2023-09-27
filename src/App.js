@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 //import { Counter } from "./features/counter/Counter";
 
@@ -53,20 +53,20 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <div className="col-12">
           <Routes>
-            <Route exact path="/my-app" element={<LandingPage />} />
-            <Route exact path="/my-app/ds" element={<DesignSystem />} />
-            <Route exact path="/my-app/books" element={<Books />} />
+            <Route exact path="/" element={<LandingPage />} />
+            <Route exact path="/ds" element={<DesignSystem />} />
+            <Route exact path="/books" element={<Books />} />
             <Route
               exact
-              path="/my-app/booksreplay2023"
+              path="/booksreplay2023"
               element={<BooksReplay2023 />}
             />
           </Routes>
         </div>
-      </BrowserRouter>
+      </HashRouter>
       {/*<BrowserRouter>
         <div className="col-12">
           <Routes>

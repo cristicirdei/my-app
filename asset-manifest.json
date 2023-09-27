@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/my-app/static/css/main.222afbda.css",
-    "main.js": "/my-app/static/js/main.a3210960.js",
+    "main.js": "/my-app/static/js/main.677eeb27.js",
     "static/js/787.28cb0dcd.chunk.js": "/my-app/static/js/787.28cb0dcd.chunk.js",
     "static/media/hearstopper-volume-one.jpg": "/my-app/static/media/hearstopper-volume-one.86a148730e7f4988e88c.jpg",
     "static/media/a-psalm-for-the-wild-built.jpg": "/my-app/static/media/a-psalm-for-the-wild-built.bee454a5e5d253776883.jpg",
@@ -59,11 +59,11 @@
     "static/media/close.svg": "/my-app/static/media/close.14e77649734895ffeea4e8d9b0115fd6.svg",
     "static/media/tablet.svg": "/my-app/static/media/tablet.a853d46089511dbca1ba2faa760d4600.svg",
     "main.222afbda.css.map": "/my-app/static/css/main.222afbda.css.map",
-    "main.a3210960.js.map": "/my-app/static/js/main.a3210960.js.map",
+    "main.677eeb27.js.map": "/my-app/static/js/main.677eeb27.js.map",
     "787.28cb0dcd.chunk.js.map": "/my-app/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.222afbda.css",
-    "static/js/main.a3210960.js"
+    "static/js/main.677eeb27.js"
   ]
 }

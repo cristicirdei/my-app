@@ -25,7 +25,7 @@
     src: url("../resources/fonts/Sinistre-SÔÇáCaroline.otf");
 }
 
-@media only screen and (max-width: 840px) {
+@media only screen and (max-width: 960px) {
 
     .page {
         padding: 0;
@@ -272,14 +272,12 @@
             position: absolute;
 
         }
-
-
     }
 
     .book-part-1 {
         height: fit-content;
         width: 100%;
-        padding: 1rem 0.5rem;
+        padding: 1.5rem 0.5rem;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -303,13 +301,13 @@
 
         .shadow {
             height: 20rem;
-            width: 0.55rem;
+            width: 0.15rem;
             position: relative;
             top: -20.25rem;
-            left: 0.1rem;
+            left: 0rem;
             border-radius: 2px;
 
-            background: -webkit-linear-gradient(-40deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.15));
+            background: -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
         }
 
         .light {
@@ -317,50 +315,91 @@
             width: 0.1rem;
             position: relative;
             top: -40.25rem;
-            left: 0.56rem;
+            left: 0.6rem;
+            border-radius: 2px;
+            // background: -webkit-linear-gradient(90deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.3));
 
-            background: -webkit-linear-gradient(90deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.3));
+
+            background: -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.15));
+        }
+
+        .light-comp {
+            height: 19.9rem;
+            width: 0.1rem;
+            position: relative;
+            top: -100.4rem;
+            left: 0.44rem;
+
+            background: -webkit-linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.01));
         }
 
         .light-3 {
-            height: 19.5rem;
+            height: 19.7rem;
             width: 0.15rem;
             position: relative;
-            top: -80.6rem;
-            left: 98.6%;
+            top: -80.55rem;
+            left: 98.8%;
+            border-radius: 2px;
 
-            background: -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.01), );
+            background: -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.01));
         }
 
         .light-reverse {
             height: 20rem;
-            width: 0.4rem;
+            width: 0.2rem;
             position: relative;
             top: -60.45rem;
-            left: 0.2rem;
+            left: 0.3rem;
 
-            background: -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.01), );
+            background: -webkit-linear-gradient(-170deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.0), rgba(0, 0, 0, 0));
         }
 
         .light-2 {
-            height: 0.2rem;
-            width: 100%;
+            height: 0.25rem;
+            width: 99%;
             position: relative;
-            top: -60.2rem;
+            top: -60.25rem;
             left: 0rem;
+            border-radius: 2px;
 
             background: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.01), );
         }
 
         .shadow-2 {
             height: 0.2rem;
-            width: 93%;
+            width: 97%;
             position: relative;
-            top: -60.65rem;
-            left: 0.65rem;
+            top: -60.7rem;
+            left: 0.05rem;
+            border-radius: 2px;
 
 
             background: -webkit-linear-gradient(-90deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.2));
+        }
+
+        .mega-shadow {
+            height: 5rem;
+            width: 100%;
+            position: relative;
+            top: -105.3rem;
+            left: 0rem;
+            border-bottom-right-radius: 7px;
+            border-bottom-left-radius: 2px;
+
+
+            background: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.0), );
+        }
+
+        .mega-light {
+            height: 7rem;
+            width: 100%;
+            position: relative;
+            top: -125.3rem;
+            left: 0rem;
+            border-radius: 4px;
+
+
+            background: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0), );
         }
 
         .details {
@@ -537,4 +576,7 @@
 
 
     }
+
+
+    .move-to-side {}
 }

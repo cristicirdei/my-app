@@ -72,7 +72,6 @@ const Timeline = ({ data }) => {
               .map((x, index) => (
                 <td
                   key={index}
-                  data-title={showTitles ? book.title : ""}
                   className={
                     index + 1 === getWeeks(book)[0] &&
                     index + 1 === getWeeks(book)[1]
@@ -86,13 +85,19 @@ const Timeline = ({ data }) => {
                       ? "line"
                       : ""
                   }
-                ></td>
+                >
+                  <p className="shown-title">
+                    {showTitles && index === getWeeks(book)[1]
+                      ? book.title
+                      : ""}
+                  </p>
+                </td>
               ))}
           </tr>
         ))}
 
         <tr>
-          <td>
+          <td colSpan={48}>
             <p id="show-titles" onClick={(e) => setShowTitles(!showTitles)}>
               Show titles
             </p>

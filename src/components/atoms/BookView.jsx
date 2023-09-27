@@ -39,6 +39,9 @@ const BookView = ({ data }) => {
           <div className="light-reverse"></div>
           <div className="shadow-2"></div>
           <div className="light-3"></div>
+          <div className="light-comp"></div>
+          <div className="mega-shadow"></div>
+          <div className="mega-light"></div>
         </div>
         <div className="details">
           <h1>{data.book.title}</h1>

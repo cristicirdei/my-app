@@ -19,7 +19,7 @@ const reWriteData = (data) => {
   return new_;
 };
 
-const DonutChart = ({ data }) => {
+const DonutChart = ({ data, animation }) => {
   const chart_data = reWriteData(data);
   console.log(data);
 
@@ -41,7 +41,7 @@ const DonutChart = ({ data }) => {
   return (
     <div className="pie-container">
       <div
-        className="donut"
+        className={"donut " + animation}
         style={{
           background: conic_gradient,
         }}

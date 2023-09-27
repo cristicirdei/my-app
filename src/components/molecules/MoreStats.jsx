@@ -77,7 +77,7 @@ const MoreStats = ({ data }) => {
   }
 
   return data.type === "languages" ? (
-    <DonutChart data={languages}></DonutChart>
+    <DonutChart data={languages} animation={".donut-animation-1"}></DonutChart>
   ) : data.type === "formats" ? (
     <DonutChart data={formats}></DonutChart>
   ) : (

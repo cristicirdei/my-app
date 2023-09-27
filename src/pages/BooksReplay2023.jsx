@@ -31,6 +31,24 @@ const BooksReplay2023 = () => {
 
   useEffect(() => {}, [openedBook]);
 
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      } else {
+        reveals[i].classList.remove("active");
+      }
+    }
+  }
+
+  window.addEventListener("scroll", reveal);
+
   return (
     <>
       {/*<Header></Header>*/}
@@ -65,7 +83,7 @@ const BooksReplay2023 = () => {
         </div>
 
         <ul>
-          <li className="orange">
+          <li className="orange reveal">
             <h1>Goal</h1>
             <div className="goal one">
               <h2>30</h2>
@@ -75,44 +93,45 @@ const BooksReplay2023 = () => {
             <p>3 books above set goal</p>
           </li>
 
-          <li className="white">
+          <li className="white reveal">
             <h1 className="pink-text">Pages Read</h1>
             <h2 className="total-pages black-text">
-              {getTotalPagesRead(books)}
+              <span>{parseInt(getTotalPagesRead(books) / 100)}</span>
+              <span>{getTotalPagesRead(books) % 100}</span>
             </h2>
           </li>
 
-          <li className="white">
+          <li className="white reveal">
             <h1>Timeline</h1>
             <Timeline data={{ books: books }}></Timeline>
           </li>
 
-          <li className="black">
+          <li className="black reveal">
             <h1 className="pink-text">Genres</h1>
             <Genres data={{ books: books, type: "meta" }}></Genres>
           </li>
 
-          <li className="pink">
+          <li className="pink reveal">
             <h1 className="black-text">Sub-Genres</h1>
             <Genres data={{ books: books, type: "sub" }}></Genres>
           </li>
 
-          <li className="white">
+          <li className="white reveal">
             <h1 className="orange-text">Languages</h1>
             <MoreStats data={{ books: books, type: "languages" }}></MoreStats>
           </li>
 
-          <li className="no-background">
+          <li className="no-background reveal">
             <h1 className="white-text">Pages</h1>
             <MoreStats data={{ books: books, type: "pages" }}></MoreStats>
           </li>
 
-          <li className="orange">
+          <li className="orange reveal">
             <h1 className="black-text">Formats</h1>
             <MoreStats data={{ books: books, type: "formats" }}></MoreStats>
           </li>
 
-          <li className="no-background shorten">
+          <li className="no-background shorten reveal">
             <h1>Books Over the Year</h1>
             <div className="content">
               <LineChart
@@ -144,7 +163,7 @@ const BooksReplay2023 = () => {
             </div>
           </li>
 
-          <li className="no-background shorten">
+          <li className="no-background shorten reveal">
             <h1 className="orange-text">Pages Over the Year</h1>
             <div className="content">
               <LineChart
@@ -177,40 +196,42 @@ const BooksReplay2023 = () => {
           </li>
         </ul>
 
-        <ol>
-          <li>
-            <p className="pink-text">64 pages</p>
-            <h1>
-              Shortest Book <span className="pink-text">The Giving Tree</span>
-            </h1>
-            <h2>Shel Silverstein</h2>
-          </li>
+        {
+          <ol className="reveal">
+            <li>
+              <p className="pink-text">64 pages</p>
+              <h1>
+                Shortest Book <span className="pink-text">The Giving Tree</span>
+              </h1>
+              <h2>Shel Silverstein</h2>
+            </li>
 
-          <li>
-            <p className="orange-text">555 pages</p>
-            <h1>
-              Longest Book{" "}
-              <span className="orange-text">The Complete Stories</span>
-            </h1>
-            <h2>Flannery O'Connor</h2>
-          </li>
+            <li>
+              <p className="orange-text">555 pages</p>
+              <h1>
+                Longest Book{" "}
+                <span className="orange-text">The Complete Stories</span>
+              </h1>
+              <h2>Flannery O'Connor</h2>
+            </li>
 
-          <li>
-            <h1>
-              Favourite Book
-              <span className="orange-text">The New Age of Empire</span>
-            </h1>
-            <h2>Kehinde Andrews</h2>
-          </li>
+            <li>
+              <h1>
+                Favourite Book
+                <span className="orange-text">The New Age of Empire</span>
+              </h1>
+              <h2>Kehinde Andrews</h2>
+            </li>
 
-          <li>
-            <h1>
-              Least Favourite Book
-              <span className="pink-text"> A Psalm for the Wild-Built</span>
-            </h1>
-            <h2>Becky Chambers</h2>
-          </li>
-        </ol>
+            <li>
+              <h1>
+                Least Favourite Book
+                <span className="pink-text"> A Psalm for the Wild-Built</span>
+              </h1>
+              <h2>Becky Chambers</h2>
+            </li>
+          </ol>
+        }
       </div>
     </>
   );

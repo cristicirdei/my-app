@@ -56,12 +56,12 @@ function App() {
       <BrowserRouter>
         <div className="col-12">
           <Routes>
-            <Route exact path="/my-app/" element={<LandingPage />} />
-            <Route exact path="/my-app/ds/" element={<DesignSystem />} />
-            <Route exact path="/my-app/books/" element={<Books />} />
+            <Route exact path="/my-app" element={<LandingPage />} />
+            <Route exact path="/my-app/ds" element={<DesignSystem />} />
+            <Route exact path="/my-app/books" element={<Books />} />
             <Route
               exact
-              path="/my-app/booksreplay2023/"
+              path="/my-app/booksreplay2023"
               element={<BooksReplay2023 />}
             />
           </Routes>

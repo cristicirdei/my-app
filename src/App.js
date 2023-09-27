@@ -56,10 +56,13 @@ function App() {
       <BrowserRouter>
         <div className="col-12">
           <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/ds" element={<DesignSystem />} />
-            <Route path="/books" element={<Books />} />
-            <Route path="/booksreplay2023" element={<BooksReplay2023 />} />
+            <Route path="/my-app/" element={<LandingPage />} />
+            <Route path="/my-app/ds" element={<DesignSystem />} />
+            <Route path="/my-app/books" element={<Books />} />
+            <Route
+              path="my-app/booksreplay2023"
+              element={<BooksReplay2023 />}
+            />
           </Routes>
         </div>
       </BrowserRouter>

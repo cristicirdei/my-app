@@ -89,7 +89,7 @@ const BooksReplay2023 = () => {
               <h2>{">"}</h2>
               <h2>33</h2>
             </div>
-            <p>3 books above set goal</p>
+            <p className="upper">3 books above set goal</p>
           </li>
 
           <li className="white reveal">

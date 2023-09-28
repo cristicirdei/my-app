@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 
 //import { Counter } from "./features/counter/Counter";
 
@@ -21,52 +21,18 @@ import Books from "./pages/Books";
 import BooksReplay2023 from "./pages/BooksReplay2023";
 
 function App() {
-  function parseJwt(token) {
-    var base64Url = token.split(".")[1];
-    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-    var jsonPayload = decodeURIComponent(
-      window
-        .atob(base64)
-        .split("")
-        .map(function (c) {
-          return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-        })
-        .join("")
-    );
-
-    return JSON.parse(jsonPayload);
-  }
-
-  useEffect(() => {
-    let token = localStorage.getItem("token");
-
-    if (token !== null && token !== undefined) {
-      const decoded = parseJwt(token);
-
-      if (decoded.exp * 1000 < new Date().getTime()) {
-        localStorage.clear();
-        window.location.reload();
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <>
-      <HashRouter>
+      <BrowserRouter>
         <div className="col-12">
           <Routes>
-            <Route exact path="/" element={<LandingPage />} />
-            <Route exact path="/ds" element={<DesignSystem />} />
-            <Route exact path="/books" element={<Books />} />
-            <Route
-              exact
-              path="/booksreplay2023"
-              element={<BooksReplay2023 />}
-            />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/ds" element={<DesignSystem />} />
+            <Route path="/books" element={<Books />} />
+            <Route path="/booksreplay2023" element={<BooksReplay2023 />} />
           </Routes>
         </div>
-      </HashRouter>
+      </BrowserRouter>
       {/*<BrowserRouter>
         <div className="col-12">
           <Routes>

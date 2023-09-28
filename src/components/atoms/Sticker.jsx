@@ -19,10 +19,10 @@ const Sticker = ({ type, data }) => {
 
   return (
     <div className={"hovertext sticker " + type} data-hover={title}>
-      <img src={border_src}></img>
-      <img src={border_src}></img>
+      <img src={border_src} alt=""></img>
+      <img src={border_src} alt=""></img>
 
-      {type === "rr" ? data + "X" : <img src={img_src}></img>}
+      {type === "rr" ? data + "X" : <img src={img_src} alt=""></img>}
     </div>
   );
 };

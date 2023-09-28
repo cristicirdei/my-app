@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import Header from "../components/molecules/Header";
 
 const LandingPage = () => {
-  const [media, setMedia] = useState(0);
+  /*const [media, setMedia] = useState(0);
 
   useEffect(() => {
     setMedia(window.matchMedia("(min-width: 768px)").matches);
-  }, []);
+  }, []);*/
 
   return (
     <>

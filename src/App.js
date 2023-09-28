@@ -26,10 +26,14 @@ function App() {
       <BrowserRouter>
         <div className="col-12">
           <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/ds" element={<DesignSystem />} />
-            <Route path="/books" element={<Books />} />
-            <Route path="/booksreplay2023" element={<BooksReplay2023 />} />
+            <Route exact path="/" element={<LandingPage />} />
+            <Route exact path="/ds" element={<DesignSystem />} />
+            <Route exact path="/books" element={<Books />} />
+            <Route
+              exact
+              path="/booksreplay2023"
+              element={<BooksReplay2023 />}
+            />
           </Routes>
         </div>
       </BrowserRouter>

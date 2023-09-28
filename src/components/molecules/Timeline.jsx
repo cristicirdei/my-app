@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 
 const Timeline = ({ data }) => {
   const months = [
@@ -16,6 +16,7 @@ const Timeline = ({ data }) => {
     "Dec",
   ];
 
+  // eslint-disable-next-line no-extend-native
   Date.prototype.getWeek = function () {
     let date = new Date(this.getTime());
     date.setHours(0, 0, 0, 0);

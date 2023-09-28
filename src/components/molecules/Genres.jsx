@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 
 const Genres = ({ data }) => {
   const books_of_the_year = data.books.filter((b) => b.title !== "");
@@ -11,14 +11,18 @@ const Genres = ({ data }) => {
         ? (genres.find((item) => item.name === g).number =
             genres.find((item) => item.name === g).number + 1)
         : genres.push({ name: g, number: 1, list: [] });
+      return genres;
     });
+    return genres;
   });
 
   // add to the genres list the titles of the books of a certain genre
   books_of_the_year.map((b) => {
     b.genres.map((g) => {
       genres.find((item) => item.name === g).list.push(b.title);
+      return genres;
     });
+    return genres;
   });
 
   // sort the genres list by the number of books of a certain genre
@@ -34,12 +38,6 @@ const Genres = ({ data }) => {
   const diff_genres = genres.filter(
     (g) => !["Fiction", "Non-Fiction", "Poetry"].includes(g.name)
   );
-
-  const [titles, setTitles] = useState([]);
-
-  const showTitles = (genre) => {
-    setTitles(genres.find((g) => g.name === genre).list);
-  };
 
   //-----------------
   const windowSize = useRef([window.innerWidth, window.innerHeight]);

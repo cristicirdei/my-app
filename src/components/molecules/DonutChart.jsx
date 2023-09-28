@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const reWriteData = (data) => {
   let chart_data = data.dataset.data;

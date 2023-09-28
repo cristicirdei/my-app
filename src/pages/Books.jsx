@@ -1,36 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import Header from "../components/molecules/Header";
-import BookView from "../components/atoms/BookView";
-import Library from "../components/molecules/Library";
-
-import { books } from "../utils/books";
-import Timeline from "../components/molecules/Timeline";
-import Genres from "../components/molecules/Genres";
-import MoreStats from "../components/molecules/MoreStats";
-import {
-  getBooksPerMonth,
-  getTotalPagesRead,
-  getPagesPerMonth,
-} from "../utils/utilFunctions";
-
-import { LineChart } from "@mui/x-charts";
 
 const Books = () => {
-  const click_book = (book) => {
-    setOpenedBook(true);
-    setOpenedBookData(book);
-  };
-
-  const click_close = () => {
-    setOpenedBook(null);
-  };
-
-  const [openedBook, setOpenedBook] = useState(null);
-  const [openedBookData, setOpenedBookData] = useState(null);
-
-  useEffect(() => {}, [openedBook]);
-
   return (
     <>
       <Header></Header>
@@ -51,6 +23,7 @@ const Books = () => {
               <img
                 className="img"
                 src={require("../resources/book covers/the-complete-stories.jpg")}
+                alt="book cover"
               ></img>
               <div className="shadow"></div>
               <div className="light"></div>
@@ -66,6 +39,7 @@ const Books = () => {
               <img
                 className="img"
                 src={require("../resources/book covers/the-heart-is-a-lonely-hunter.jpg")}
+                alt="book cover"
               ></img>
               <div className="shadow"></div>
               <div className="light"></div>
@@ -81,6 +55,7 @@ const Books = () => {
               <img
                 className="img"
                 src={require("../resources/book covers/one-hundred-years-of-solitude.jpg")}
+                alt="book cover"
               ></img>
               <div className="shadow"></div>
               <div className="light"></div>

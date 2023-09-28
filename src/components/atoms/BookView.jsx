@@ -32,6 +32,7 @@ const BookView = ({ data }) => {
         <div id="cover">
           <img
             src={require(`../../resources/book covers/` + data.book.cover)}
+            alt=""
           ></img>
           <div className="shadow"></div>
           <div className="light"></div>
@@ -76,9 +77,9 @@ const BookView = ({ data }) => {
             <div>
               <p>Format</p>
               {data.book.medium === "eBook" ? (
-                <img src={ebook} className="details-icon"></img>
+                <img src={ebook} className="details-icon" alt=""></img>
               ) : (
-                <img src={book} className="details-icon"></img>
+                <img src={book} className="details-icon" alt=""></img>
               )}
 
               <p>{data.book.medium}</p>
@@ -136,12 +137,12 @@ const BookView = ({ data }) => {
           {Array(data.book.rating)
             .fill(0)
             .map(() => (
-              <img src={star_filled} className="star" />
+              <img src={star_filled} className="star" alt="" />
             ))}
           {Array(5 - data.book.rating)
             .fill(0)
             .map(() => (
-              <img src={star} className="star" />
+              <img src={star} className="star" alt="" />
             ))}
         </div>
 
@@ -154,7 +155,12 @@ const BookView = ({ data }) => {
           <Impression type={i.toLowerCase()} />
         ))}
       </div>
-      <img src={close} className="close" onClick={(e) => data.on_close()} />
+      <img
+        src={close}
+        className="close"
+        onClick={(e) => data.on_close()}
+        alt=""
+      />
     </div>
   );
 };

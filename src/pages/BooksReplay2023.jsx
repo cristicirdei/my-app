@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import Header from "../components/molecules/Header";
 import BookView from "../components/atoms/BookView";
 import Library from "../components/molecules/Library";
 

@@ -28,6 +28,12 @@ const months = [
 const BookView = ({ data }) => {
   return (
     <div className="book-view-container">
+      <img
+        src={close}
+        className="close"
+        onClick={(e) => data.on_close()}
+        alt=""
+      />
       <div className="book-part-1">
         <div id="cover">
           <img
@@ -155,12 +161,6 @@ const BookView = ({ data }) => {
           <Impression type={i.toLowerCase()} />
         ))}
       </div>
-      <img
-        src={close}
-        className="close"
-        onClick={(e) => data.on_close()}
-        alt=""
-      />
     </div>
   );
 };

@@ -49,15 +49,13 @@ const BooksReplay2023 = () => {
   window.addEventListener("scroll", reveal);
 
   return (
-    <>
-      {/*<Header></Header>*/}
+    <div className="dark col-12">
+      <h1 className="replay-page-title one">Books Rewind '23</h1>
 
-      <div className="page dark">
-        <h1 className="replay-page-title one">Books Rewind '23</h1>
+      <p className="about two">This year I've read some books.</p>
 
-        <p className="about two">This year I've read some books.</p>
-
-        <div className={openedBook ? "year-books fade" : "year-books "}>
+      {
+        <div className={"year-books "}>
           <h1 className="title one">Books of 2023</h1>
           <div className={"container"}>
             <Library
@@ -80,7 +78,8 @@ const BooksReplay2023 = () => {
             )}
           </div>
         </div>
-
+      }
+      {
         <ul>
           <li className="orange reveal">
             <h1>Goal</h1>
@@ -130,7 +129,7 @@ const BooksReplay2023 = () => {
             <MoreStats data={{ books: books, type: "formats" }}></MoreStats>
           </li>
 
-          <li className="no-background shorten ">
+          <li className="no-background shorten reveal">
             <h1>Books Over the Year</h1>
             <div className="content">
               <LineChart
@@ -141,7 +140,7 @@ const BooksReplay2023 = () => {
                   },
                 ]}
                 colors={["#fe318f", "#fd3c00"]}
-                width={390}
+                width={360}
                 height={300}
                 sx={{
                   "& .MuiLineElement-root": {
@@ -173,7 +172,7 @@ const BooksReplay2023 = () => {
                   },
                 ]}
                 colors={["#fd3c00"]}
-                width={390}
+                width={360}
                 height={300}
                 sx={{
                   "& .MuiLineElement-root": {
@@ -194,45 +193,45 @@ const BooksReplay2023 = () => {
             </div>
           </li>
         </ul>
+      }
 
-        {
-          <ol>
-            <li>
-              <p className="pink-text">64 pages</p>
-              <h1>
-                Shortest Book <span className="pink-text">The Giving Tree</span>
-              </h1>
-              <h2>Shel Silverstein</h2>
-            </li>
+      {
+        <ol>
+          <li>
+            <p className="pink-text">64 pages</p>
+            <h1>
+              Shortest Book <span className="pink-text">The Giving Tree</span>
+            </h1>
+            <h2>Shel Silverstein</h2>
+          </li>
 
-            <li>
-              <p className="orange-text">555 pages</p>
-              <h1>
-                Longest Book{" "}
-                <span className="orange-text">The Complete Stories</span>
-              </h1>
-              <h2>Flannery O'Connor</h2>
-            </li>
+          <li>
+            <p className="orange-text">555 pages</p>
+            <h1>
+              Longest Book{" "}
+              <span className="orange-text">The Complete Stories</span>
+            </h1>
+            <h2>Flannery O'Connor</h2>
+          </li>
 
-            <li>
-              <h1>
-                Favourite Book
-                <span className="orange-text">The New Age of Empire</span>
-              </h1>
-              <h2>Kehinde Andrews</h2>
-            </li>
+          <li>
+            <h1>
+              Favourite Book
+              <span className="orange-text">The New Age of Empire</span>
+            </h1>
+            <h2>Kehinde Andrews</h2>
+          </li>
 
-            <li>
-              <h1>
-                Least Favourite Book
-                <span className="pink-text"> A Psalm for the Wild-Built</span>
-              </h1>
-              <h2>Becky Chambers</h2>
-            </li>
-          </ol>
-        }
-      </div>
-    </>
+          <li>
+            <h1>
+              Least Favourite Book
+              <span className="pink-text"> A Psalm for the Wild-Built</span>
+            </h1>
+            <h2>Becky Chambers</h2>
+          </li>
+        </ol>
+      }
+    </div>
   );
 };
 

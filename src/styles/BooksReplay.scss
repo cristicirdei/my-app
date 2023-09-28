@@ -60,17 +60,25 @@ $replayColor2: #FE318F;
 $replayBackground: #E5E4E2;
 $replayDark: #2B292A;
 
+/* {
+    border: 1px solid rgb(0, 255, 8);
+    border-style: dashed;
+}*/
+
 .dark {
     background-color: #121212;
     color: #fff;
-    margin-top: -35px;
     padding: 2rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     height: fit-content;
     gap: 2rem;
     padding-bottom: 10rem;
+    margin: 0;
+    margin-top: -35px;
+    width: 100%;
 }
 
 .replay-page-title {
@@ -82,7 +90,7 @@ $replayDark: #2B292A;
     font-size: 1.6rem;
     color: #fff;
     width: 300px;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .one {
@@ -112,7 +120,7 @@ $replayDark: #2B292A;
 
 .year-books {
     height: fit-content;
-    width: 96%;
+    width: 80%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -143,7 +151,7 @@ $replayDark: #2B292A;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: fit-content;
         transition: width 1s;
         height: 430px;
 
@@ -285,14 +293,11 @@ $replayDark: #2B292A;
 
     }
 
-    .move-to-side {
-        width: 16rem;
-        margin-left: 1rem;
-        transition: width 1s;
-    }
+
 }
 
 ul {
+
     all: unset;
     width: 100%;
     display: flex;
@@ -340,7 +345,6 @@ ul {
     transition: border 1s;
     transition: background-color 1s;
 }
-
 
 .white-text {
     color: $replayBackground;
@@ -599,7 +603,7 @@ ul {
 
         100% {
             opacity: 0;
-            left: 100px;
+            left: 50px;
             //  width: 0rem;
         }
     }
@@ -843,7 +847,7 @@ ul {
 
 .shorten {
     .content {
-        width: 390px;
+        width: 350px;
         position: absolute;
         left: -2rem;
     }
@@ -1046,7 +1050,7 @@ ol {
 
 .reveal {
     position: relative;
-    transform: translateX(-150px);
+    transform: translateY(-80px);
     opacity: 0;
     transition: 1s all ease;
 }
@@ -1067,7 +1071,7 @@ ol {
 }*/
 
 .reveal.active {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
 }
 

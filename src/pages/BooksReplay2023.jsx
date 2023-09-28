@@ -130,7 +130,7 @@ const BooksReplay2023 = () => {
             <MoreStats data={{ books: books, type: "formats" }}></MoreStats>
           </li>
 
-          <li className="no-background shorten reveal">
+          <li className="no-background shorten ">
             <h1>Books Over the Year</h1>
             <div className="content">
               <LineChart
@@ -196,7 +196,7 @@ const BooksReplay2023 = () => {
         </ul>
 
         {
-          <ol className="reveal">
+          <ol>
             <li>
               <p className="pink-text">64 pages</p>
               <h1>

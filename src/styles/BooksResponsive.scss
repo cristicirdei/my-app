@@ -27,6 +27,10 @@
 
 @media only screen and (max-width: 960px) {
 
+    * {
+        max-width: 390px;
+    }
+
     .page {
         padding: 0;
         display: flex;
@@ -381,12 +385,10 @@
             height: 5rem;
             width: 100%;
             position: relative;
-            top: -105.3rem;
+            top: -105.5rem;
             left: 0rem;
             border-bottom-right-radius: 7px;
             border-bottom-left-radius: 2px;
-
-
             background: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.0), );
         }
 
@@ -394,7 +396,7 @@
             height: 7rem;
             width: 100%;
             position: relative;
-            top: -125.3rem;
+            top: -125.5rem;
             left: 0rem;
             border-radius: 4px;
 

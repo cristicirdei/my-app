@@ -70,6 +70,7 @@ $replayDark: #2B292A;
     justify-content: center;
     height: fit-content;
     gap: 2rem;
+    padding-bottom: 10rem;
 }
 
 .replay-page-title {
@@ -1038,6 +1039,14 @@ ol {
     }
 }
 
+.reveal {
+    position: relative;
+    transform: translateX(-150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+/*
 .reveal:nth-of-type(2n+0) {
     position: relative;
     transform: translateX(-150px);
@@ -1050,7 +1059,7 @@ ol {
     transform: translateX(150px);
     opacity: 0;
     transition: 1s all ease;
-}
+}*/
 
 .reveal.active {
     transform: translateX(0);
@@ -1423,6 +1432,10 @@ ol {
             padding: 1rem;
             width: 35%;
             height: fit-content;
+
+            h1 {
+                line-height: normal;
+            }
         }
     }
 
@@ -1457,145 +1470,3 @@ ol {
         }
     }
 }
-
-/*
-@media only screen and (max-width: 840px) {
-
-    .stats {
-        display: flex;
-        // flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
-        flex-wrap: wrap;
-        width: 90%;
-    }
-
-    .timeline {
-        width: 100%;
-        margin: 0;
-    }
-
-
-    .meta-genres {
-        width: 14.9rem;
-        border: none;
-        height: fit-content;
-        padding: 0.7rem;
-
-        h2 {
-            font-size: 1.2rem;
-        }
-
-        .pipe {
-            width: 2.5rem;
-            font-size: 1.25rem;
-            margin-bottom: 2px;
-        }
-    }
-
-    .differential-genres {
-        width: 100%;
-        border: none;
-        height: fit-content;
-        padding: 0.7rem;
-
-        h2 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        #dif-genres {
-            .genre-line {
-                .g-name {
-                    width: 32%;
-                    font-size: 0.8rem;
-                }
-
-                .line {
-                    background-color: rgb(125, 105, 213);
-                    border-radius: 5px;
-                    height: 0.6rem;
-
-                    p {
-                        font-size: 0.5rem;
-                        width: fit-content;
-                    }
-                }
-            }
-
-        }
-    }
-
-
-    .stats-plus {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 15rem;
-        padding: 1rem;
-
-        .pie-container {
-
-            h2 {
-                font-size: 1.2rem;
-            }
-
-            .donut {
-                width: 7rem;
-                height: 7rem;
-
-                .inner-circle {
-                    width: 4.5rem;
-                    height: 4.5rem;
-                    top: 1.25rem;
-                    left: 1.25rem;
-                }
-            }
-
-            #legend {
-                width: 10rem;
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 3px;
-            }
-        }
-    }
-
-    .modular-content {
-        padding: 0.7rem;
-
-        h2 {
-            font-size: 1.2rem;
-        }
-
-        .goal {
-            h1 {
-                font-size: 4.5rem;
-                letter-spacing: -0.6rem;
-            }
-
-            h1:nth-of-type(2) {
-                margin-left: -2.5rem;
-            }
-        }
-
-        p {
-            font-size: 12px;
-        }
-
-        .total-pages {
-            font-size: 5rem;
-        }
-    }
-
-    .smlr {
-        width: 6rem;
-        padding: 0.7rem;
-
-        h2 {
-            margin: 0 auto;
-        }
-    }
-}*/

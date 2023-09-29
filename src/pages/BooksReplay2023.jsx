@@ -52,7 +52,14 @@ const BooksReplay2023 = () => {
     <div className="dark col-12">
       <h1 className="replay-page-title one">Books Rewind '23</h1>
 
-      <p className="about two">This year I've read some books.</p>
+      <div className="about ">
+        <h1>Section title</h1>
+        <p>
+          This year I've read some books. Again.
+          <span> book title</span>
+        </p>
+        <h1>Section title</h1>
+      </div>
 
       {
         <div className={"year-books "}>

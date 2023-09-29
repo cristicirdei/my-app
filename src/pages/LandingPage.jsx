@@ -12,9 +12,12 @@ const LandingPage = () => {
     <>
       <Header></Header>
       <div className="page">
-        <h1 className="landingTitle">
-          hello! my name is cristi. here is a small part of myself
-        </h1>
+        <div className="blob"></div>
+        <div className="glass"></div>
+        <h1 className="landingTitle">cristi cîrdei</h1>
+        <p className="about-me">
+          <em>hi!</em> and <em>welcome!</em> more about me soon-ish :)
+        </p>
       </div>
     </>
   );

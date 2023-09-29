@@ -1,58 +1,56 @@
 @import "Master";
 
 @font-face {
-    font-family: mainFont;
+    font-family: Font2;
     src: url("../resources/fonts/Sinistre-SÔÇáCaroline.otf");
 }
 
+.glass {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.68);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.6px);
+    -webkit-backdrop-filter: blur(6.6px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
 
 .landingTitle {
-    font-size: 15rem;
-    font-family: mainFont;
-    color: greenyellow;
+    font-size: 5rem;
+    font-family: Font2;
+    color: #000;
+    position: absolute;
+    top: 18rem;
+    width: fit-content;
+    align-self: center;
+    word-spacing: 7rem;
 }
+
+.about-me {
+    //color: rgb(102, 47, 255);
+    position: absolute;
+    top: 25rem;
+    width: 50%;
+    text-align: center;
+}
+
 
 .landingDiv {
     width: 70%,
 }
 
-@media screen and (max-width: 768px) {
-    .landingTitle {
-        font-size: 2.5rem;
-        margin-left: -3rem;
-        margin-top: -9rem;
-        width: 100%;
-    }
-
-
-    .landingDiv {
-        width: 60%;
-        margin-left: 0;
-        padding-left: 0;
-    }
-
-    .start {
-        height: 3rem;
-        width: 90%;
-
-        font-size: larger;
-        margin-left: -0rem;
-
-    }
-
-
-}
-
-
 .blob:nth-of-type(1) {
-    height: 1px;
-    width: 1px;
+    position: absolute;
+    top: 50%;
+
+    height: 5px;
+    width: 5px;
     border-radius: 10rem;
-    background-color: rgb(112, 20, 210);
-    position: relative;
-    top: 48rem;
-    left: 11rem;
-    box-shadow: 0px 2px 100px 70px rgb(112, 20, 210);
+    background-color: rgb(102, 47, 255);
+    box-shadow: 0px 2px 150px 150px rgb(102, 47, 255);
 }
 
 .blob:nth-of-type(2) {
@@ -66,17 +64,23 @@
     box-shadow: 0px 2px 100px 70px rgb(104, 8, 239);
 }
 
-@media screen and (max-width: 768px) {
-
-    .blob:nth-of-type(1) {
-        top: 47rem;
-        left: 4rem;
-        box-shadow: 0px 2px 100px 60px rgb(112, 20, 210);
+@media screen and (max-width: 400px) {
+    .landingTitle {
+        font-size: 3rem;
+        top: 18rem;
+        width: 100%;
+        word-spacing: 5rem;
+        text-align: center;
     }
 
-    .blob:nth-of-type(2) {
-        top: 78rem;
-        left: 10rem;
-        box-shadow: 0px 2px 100px 60px rgb(104, 8, 239);
+    .about-me {
+        top: 24rem;
+        width: 60%;
+        text-align: center;
+    }
+
+
+    .blob:nth-of-type(1) {
+        top: 39%;
     }
 }

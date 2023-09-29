@@ -27,18 +27,12 @@
 
 @media only screen and (max-width: 960px) {
 
-    * {
-        max-width: 390px;
-    }
+
 
     .page {
         padding: 0;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        justify-items: center;
-        align-content: center;
 
 
     }
@@ -259,7 +253,7 @@
 
     .book-view-container {
         height: fit-content;
-        width: 95%;
+        width: 110%;
         margin: 0;
         padding: 0;
         border-radius: 15px;
@@ -384,7 +378,7 @@
             height: 5rem;
             width: 100%;
             position: relative;
-            top: -105.3rem;
+            top: -105.4rem;
             left: 0rem;
             border-bottom-right-radius: 7px;
             border-bottom-left-radius: 2px;
@@ -395,7 +389,7 @@
             height: 7rem;
             width: 100%;
             position: relative;
-            top: -125.3rem;
+            top: -125.4rem;
             left: 0rem;
             border-radius: 4px;
 
@@ -409,7 +403,7 @@
             gap: 1rem;
             width: 90%;
             padding-top: 1rem;
-
+            line-height: 80%;
 
             h1 {
                 font-size: 1.5rem;
@@ -417,6 +411,7 @@
                 font-family: bookTitleFont;
                 display: flex;
                 justify-content: center;
+
             }
 
             h2 {
@@ -579,5 +574,4 @@
     }
 
 
-    .move-to-side {}
 }

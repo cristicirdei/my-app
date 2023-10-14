@@ -20,7 +20,183 @@
     src: url("../resources/fonts/Vollkorn-Regular.ttf");
 }
 
+.year-books {
+    height: fit-content;
+    width: 80%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    margin-bottom: 1rem;
 
+    transition: box-shadow 1s;
+    transition: border 1s;
+    transition: background-color 1s;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 0rem;
+        align-content: center;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .title {
+        font-size: 3rem;
+        color: #E5E4E2;
+    }
+
+    .display {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        transition: width 1s;
+        height: 430px;
+
+
+        .library {
+            width: fit-content;
+            height: fit-content;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            border: 4px solid #E5E4E2;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+            .month {
+                border: 4px solid #E5E4E2;
+                width: 6rem;
+                height: 6rem;
+                display: flex;
+                flex-direction: column;
+                align-content: space-between;
+                justify-content: space-between;
+                padding: 0;
+
+                .tag {
+                    background-color: #000;
+                    font-size: 0.7rem;
+                    padding: 1px 3px;
+                    border-radius: 5px;
+                    position: relative;
+                    top: -0.6rem;
+                    left: 2rem;
+                    height: fit-content;
+                    width: fit-content;
+                }
+
+                .books {
+                    display: flex;
+                    padding: 0;
+                    margin: 0;
+                    width: 100%;
+                    align-items: flex-end;
+                    justify-content: flex-start;
+
+                }
+
+                .book {
+                    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+                    background-color: #2B292A;
+                    width: 0.6rem;
+                    height: 4rem;
+                    border-radius: 1px;
+                }
+
+                .book:nth-of-type(4n+1) {
+                    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+
+                    background-color: #FD3C00;
+                    width: 0.7rem;
+                    height: 3.8rem;
+                }
+
+                .book:nth-of-type(4n+2) {
+                    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+
+                    background-color: #ff5500;
+                    width: 0.6rem;
+                    height: 4.1rem;
+                }
+
+                .book:nth-of-type(4n+3) {
+                    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+
+                    background-color: #cd0167;
+                    width: 0.6rem;
+                    height: 3.9rem;
+                }
+
+                .book:nth-of-type(4n) {
+                    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+
+                    background-color: #FE318F;
+                    width: 0.7rem;
+                    height: 3.7rem;
+                }
+
+                .book:nth-of-type(7) {
+                    animation: up 10s infinite;
+                    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.7);
+
+                    @keyframes up {
+                        0% {
+                            rotate: 0deg;
+                            top: 0px;
+
+                        }
+
+                        10% {
+                            rotate: 15deg;
+                            top: -30px;
+
+
+                        }
+
+                        30% {
+                            rotate: 15deg;
+                            top: -30px;
+
+                        }
+
+                        40% {
+                            rotate: 0deg;
+                            top: 0px;
+
+                        }
+
+                        100% {
+                            rotate: 0deg;
+                            top: 0px;
+
+                        }
+                    }
+                }
+
+                .hovertext {
+                    color: #000;
+                    font-size: 0.8rem;
+                }
+
+                .book:hover {
+                    cursor: pointer;
+                    margin-bottom: 0.3rem;
+                    margin-right: 0.2rem;
+                    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.6);
+                }
+            }
+
+
+        }
+
+
+    }
+
+
+}
 
 .book-view-container {
     height: 27rem;
@@ -33,8 +209,10 @@
     .close {
         opacity: 0.6;
         margin: 0.5rem;
-        position: absolute;
-        right: 0;
+        width: 1.5rem;
+        position: relative;
+        top: -45%;
+        // right: 0;
     }
 
 
@@ -247,4 +425,358 @@
     }
 
 
+}
+
+
+@media only screen and (min-width: 960px) {
+    .year-books {
+        height: fit-content;
+        width: 96%;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        align-items: flex-start;
+
+        .title {
+            align-self: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            padding-left: 2rem;
+        }
+
+
+
+        .display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            transition: width 1s;
+            height: 430px;
+        }
+
+        .move-to-side {
+            width: 20rem;
+            margin-left: 1rem;
+            transition: width 1s;
+        }
+    }
+
+    .book-view-container {
+        height: 27rem;
+        width: 66rem;
+        margin: 0;
+        padding: 0;
+        border-radius: 15px;
+        display: flex;
+
+        background-color: #E5E4E2;
+
+        color: #000;
+
+
+
+    }
+
+    .book-part-1 {
+        height: 100%;
+        width: 75%;
+        padding: 1rem;
+        display: flex;
+
+        #cover {
+            height: 25rem;
+            margin-top: 0rem;
+        }
+
+        img {
+            height: 25rem;
+
+            background: rgba(255, 255, 255, 0.68);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-top-right-radius: 7px;
+            border-bottom-right-radius: 7px;
+
+        }
+
+        .shadow {
+            height: 25rem;
+            width: 0.15rem;
+            position: relative;
+            top: -25.25rem;
+            left: 0rem;
+            border-radius: 2px;
+
+            background: -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
+        }
+
+        .light {
+            height: 25rem;
+            width: 0.1rem;
+            position: relative;
+            top: -50.25rem;
+            left: 0.7rem;
+            border-radius: 2px;
+            // background: -webkit-linear-gradient(90deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.3));
+
+
+            background: -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.15));
+        }
+
+        .light-comp {
+            height: 24.9rem;
+            width: 0.1rem;
+            position: relative;
+            top: -125.4rem;
+            left: 0.54rem;
+
+            background: -webkit-linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.01));
+        }
+
+        .light-3 {
+            height: 24.7rem;
+            width: 0.15rem;
+            position: relative;
+            top: -100.55rem;
+            left: 98.8%;
+            border-radius: 2px;
+
+            background: -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.01));
+        }
+
+        .light-reverse {
+            height: 25rem;
+            width: 0.2rem;
+            position: relative;
+            top: -75.45rem;
+            left: 0.3rem;
+
+            background: -webkit-linear-gradient(-170deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.0), rgba(0, 0, 0, 0));
+        }
+
+        .light-2 {
+            height: 0.25rem;
+            width: 99%;
+            position: relative;
+            top: -75.25rem;
+            left: 0rem;
+            border-radius: 2px;
+
+            background: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.01), );
+        }
+
+        .shadow-2 {
+            height: 0.2rem;
+            width: 97%;
+            position: relative;
+            top: -75.7rem;
+            left: 0.05rem;
+            border-radius: 2px;
+
+
+            background: -webkit-linear-gradient(-90deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.2));
+        }
+
+        .mega-shadow {
+            height: 5rem;
+            width: 100%;
+            position: relative;
+            top: -130.3rem;
+            left: 0rem;
+            border-bottom-right-radius: 7px;
+            border-bottom-left-radius: 2px;
+
+
+            background: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.0), );
+        }
+
+        .mega-light {
+            height: 7rem;
+            width: 100%;
+            position: relative;
+            top: -155.3rem;
+            left: 0rem;
+            border-radius: 4px;
+
+
+            background: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0), );
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 90%;
+            padding-left: 1rem;
+
+
+            h1 {
+                font-size: 1.5rem;
+                margin-top: 1rem;
+                font-family: bookTitleFont;
+                display: flex;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+                margin-top: -1rem;
+                font-family: bookSubTitleFont;
+                display: flex;
+            }
+
+            h3 {
+                font-size: 1rem;
+                margin-top: -0.5rem;
+                display: flex;
+
+                span {
+                    opacity: 0.5;
+                }
+            }
+
+            h4 {
+                font-family: bookDetailsFont;
+                max-height: 143px;
+                overflow: hidden;
+                width: 100%;
+                font-weight: 1rem;
+            }
+
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                margin-left: 0rem;
+            }
+
+
+
+
+            .info {
+
+                display: flex;
+                justify-content: space-between;
+
+                font-family: bookDetailsFont;
+
+                padding-top: 0.3rem;
+                padding-bottom: 0.3rem;
+                border-top: 1px solid rgba(176, 176, 176, 0.344);
+                border-bottom: 1px solid rgba(176, 176, 176, 0.344);
+
+                p {
+                    font-size: 0.8rem;
+                }
+
+                p:nth-of-type(1) {
+                    font-weight: 600;
+                    font-size: 0.9rem;
+                    opacity: 0.4;
+                }
+
+                h5 {
+                    font-family: bookSubTitleFont;
+                    font-size: 1.3rem;
+                    margin-top: 0.3rem;
+                }
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 0.2rem;
+
+                    .details-icon {
+                        all: unset;
+                        height: 1.5rem;
+                        margin-top: 0.3rem;
+                    }
+                }
+
+                .language {
+                    width: fit-content;
+                    background-color: #000;
+                    color: #fff;
+                    font-family: bookSubTitleFont;
+                    border-radius: 5px;
+                    font-size: 1rem;
+                    padding: 3px;
+                    padding-bottom: 0;
+
+                }
+
+
+            }
+
+            .genres {
+                display: flex;
+                flex-direction: row;
+                gap: 0.2rem;
+                flex-wrap: wrap;
+
+                h4 {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .book-part-2 {
+        height: 100%;
+        width: 25%;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 1rem;
+        display: flex;
+        gap: 0.3rem;
+
+        .stickers-zone {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            padding: 0.5rem 0;
+
+            img {
+
+                background: none;
+                box-shadow: none;
+                border: none;
+
+            }
+
+
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            font-family: bookSubTitleFont;
+            margin-top: 1rem;
+        }
+
+        .review {
+            font-size: 1rem;
+            max-height: 15rem;
+            overflow: scroll;
+            overflow-x: hidden;
+        }
+
+        .star {
+            width: 1.2rem;
+            color: rgb(170, 170, 170);
+        }
+
+        span {
+            opacity: 0.5;
+        }
+
+
+    }
 }

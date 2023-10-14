@@ -49,9 +49,11 @@ const Timeline = ({ data }) => {
 
   const first_half = [];
   const second_half = [];
-  books_of_the_year.map((book) =>
-    getWeeks(book)[0] > 24 ? second_half.push(book) : first_half.push(book)
-  );
+  if (windowSize.current[0] < 840) {
+    books_of_the_year?.map((book) =>
+      getWeeks(book)[0] > 24 ? second_half.push(book) : first_half.push(book)
+    );
+  }
 
   return windowSize.current[0] >= 840 ? (
     <table className={"timeline"}>
@@ -66,7 +68,7 @@ const Timeline = ({ data }) => {
       </thead>
 
       <tbody>
-        {books_of_the_year.map((book, index) => (
+        {books_of_the_year?.map((book, index) => (
           <tr key={index}>
             {Array(48)
               .fill(0)
@@ -120,7 +122,7 @@ const Timeline = ({ data }) => {
         </thead>
 
         <tbody>
-          {first_half.map((book, index) => (
+          {first_half?.map((book, index) => (
             <tr
               className={
                 getWeeks(book)[1] > 12 && getWeeks(book)[1] <= 24
@@ -176,7 +178,7 @@ const Timeline = ({ data }) => {
         </thead>
 
         <tbody>
-          {second_half.map((book, index) => (
+          {second_half?.map((book, index) => (
             <tr
               className={
                 getWeeks(book)[1] > 36 && getWeeks(book)[1] <= 48

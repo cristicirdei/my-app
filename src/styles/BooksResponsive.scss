@@ -26,15 +26,10 @@
 }
 
 @media only screen and (max-width: 960px) {
-
-
-
     .page {
         padding: 0;
         display: flex;
         flex-direction: column;
-
-
     }
 
     .books-page-title {
@@ -253,7 +248,7 @@
 
     .book-view-container {
         height: fit-content;
-        width: 110%;
+        width: 100%;
         margin: 0;
         padding: 0;
         border-radius: 15px;
@@ -266,11 +261,14 @@
 
         .close {
             opacity: 0.6;
+            margin: 0.5rem;
+            width: 1.5rem;
             position: relative;
-            width: 2rem;
-            left: 85%;
-            margin-bottom: -1.5rem;
+            top: -45%;
+            left: 95%;
+            order: 1;
         }
+
     }
 
     .book-part-1 {
@@ -280,6 +278,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        order: 2;
 
         #cover {
             height: 20rem;
@@ -378,18 +377,18 @@
             height: 5rem;
             width: 100%;
             position: relative;
-            top: -105.4rem;
+            top: -105.3rem;
             left: 0rem;
             border-bottom-right-radius: 7px;
             border-bottom-left-radius: 2px;
-            background: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.0), );
+            background: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.0), );
         }
 
         .mega-light {
             height: 7rem;
             width: 100%;
             position: relative;
-            top: -125.4rem;
+            top: -125.3rem;
             left: 0rem;
             border-radius: 4px;
 
@@ -530,6 +529,8 @@
         display: flex;
         flex-direction: column;
         gap: 0.3rem;
+
+        order: 3;
 
         .stickers-zone {
             display: flex;

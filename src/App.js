@@ -12,7 +12,6 @@ import "./styles/BookView.scss";
 import "./styles/Books.scss";
 import "./styles/BooksResponsive.scss";
 import "./styles/Stats.scss";
-import "./styles/BooksReplay.scss";
 
 // components
 import LandingPage from "./pages/LandingPage";

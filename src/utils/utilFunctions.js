@@ -1,3 +1,5 @@
+import Papa from "papaparse";
+
 export const getTotalPagesRead = (books) => {
   let pages = 0;
 
@@ -38,4 +40,29 @@ export const getPagesPerMonth = (books_) => {
   });
 
   return pages_per_month;
+};
+
+export const parceCSV = (data) => {
+  let read_books, tbr_books;
+  Papa.parse(data, {
+    download: true,
+    header: true,
+    skipEmptyLines: true,
+    dynamicTyping: true,
+    complete: function (results) {
+      let data = results.data;
+      data.map((entry) => {
+        entry["Date Added"] = new Date(entry["Date Added"]);
+        entry["Date Read"] = new Date(entry["Date Read"]);
+        return 0;
+      });
+      read_books = data.filter((b) => b["Exclusive Shelf"] === "read");
+      read_books = read_books.sort((a, b) => b["Date Read"] - a["Date Read"]);
+
+      tbr_books = data.filter((b) => b["Exclusive Shelf"] === "to-read");
+      tbr_books = tbr_books.sort((a, b) => b["Date Added"] - a["Date Added"]);
+    },
+  });
+  console.log(tbr_books);
+  return [read_books, tbr_books];
 };

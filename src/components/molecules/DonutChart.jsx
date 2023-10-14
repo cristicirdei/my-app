@@ -21,7 +21,6 @@ const reWriteData = (data) => {
 
 const DonutChart = ({ data, animation }) => {
   const chart_data = reWriteData(data);
-  console.log(data);
 
   let conic_gradient = "conic-gradient(";
 

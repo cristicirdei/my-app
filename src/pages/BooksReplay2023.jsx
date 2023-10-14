@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../styles/BooksReplay.scss";
 
 import BookView from "../components/atoms/BookView";
 import Library from "../components/molecules/Library";
@@ -30,23 +31,48 @@ const BooksReplay2023 = () => {
 
   useEffect(() => {}, [openedBook]);
 
-  function reveal() {
-    var reveals = document.querySelectorAll(".reveal");
+  const [data, setData] = useState({
+    totalPages: 0,
+    booksPerMonth: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    pagesPerMonth: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  });
+  useEffect(() => {
+    setData({
+      totalPages: getTotalPagesRead(books),
+      booksPerMonth: getBooksPerMonth(books),
+      pagesPerMonth: getPagesPerMonth(books),
+    });
 
-    for (var i = 0; i < reveals.length; i++) {
-      var windowHeight = window.innerHeight;
-      var elementTop = reveals[i].getBoundingClientRect().top;
-      var elementVisible = 150;
+    return () => {
+      // Cleanup function to clear data
+      setData([]);
+    };
+  }, []);
 
-      if (elementTop < windowHeight - elementVisible) {
-        reveals[i].classList.add("active");
-      } else {
-        reveals[i].classList.remove("active");
+  useEffect(() => {
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
+        }
       }
     }
-  }
 
-  window.addEventListener("scroll", reveal);
+    window.addEventListener("scroll", reveal);
+
+    return () => {
+      // Cleanup event listner
+      window.removeEventListener("scroll", reveal);
+    };
+  }, []);
 
   return (
     <div className="dark col-12">
@@ -61,33 +87,32 @@ const BooksReplay2023 = () => {
         <h1>Section title</h1>
       </div>
 
-      {
-        <div className={"year-books "}>
-          <h1 className="title one">Books of 2023</h1>
-          <div className={"container"}>
-            <Library
+      <div className={"year-books "}>
+        <h1 className="title one">Books of 2023</h1>
+        <div className={"container"}>
+          <Library
+            data={{
+              on_click: click_book,
+              class: openedBook,
+              books: books,
+            }}
+          ></Library>
+          {openedBook ? (
+            <BookView
               data={{
-                on_click: click_book,
+                on_close: click_close,
                 class: openedBook,
-                books: books,
+                book: openedBookData,
               }}
-            ></Library>
-            {openedBook ? (
-              <BookView
-                data={{
-                  on_close: click_close,
-                  class: openedBook,
-                  book: openedBookData,
-                }}
-              ></BookView>
-            ) : (
-              ""
-            )}
-          </div>
+            ></BookView>
+          ) : (
+            ""
+          )}
         </div>
-      }
+      </div>
+
       {
-        <ul>
+        <ul className="replay">
           <li className="orange reveal">
             <h1>Goal</h1>
             <div className="goal one">
@@ -101,8 +126,8 @@ const BooksReplay2023 = () => {
           <li className="white reveal">
             <h1 className="pink-text">Pages Read</h1>
             <h2 className="total-pages black-text">
-              <span>{parseInt(getTotalPagesRead(books) / 100)}</span>
-              <span>{getTotalPagesRead(books) % 100}</span>
+              <span>{parseInt(data?.totalPages / 100)}</span>
+              <span>{data?.totalPages % 100}</span>
             </h2>
           </li>
 
@@ -143,7 +168,7 @@ const BooksReplay2023 = () => {
                 xAxis={[{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] }]}
                 series={[
                   {
-                    data: getBooksPerMonth(books),
+                    data: data?.booksPerMonth,
                   },
                 ]}
                 colors={["#fe318f", "#fd3c00"]}
@@ -175,7 +200,7 @@ const BooksReplay2023 = () => {
                 xAxis={[{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] }]}
                 series={[
                   {
-                    data: getPagesPerMonth(books),
+                    data: data?.pagesPerMonth,
                   },
                 ]}
                 colors={["#fd3c00"]}

@@ -12,18 +12,135 @@
     backdrop-filter: blur(6.6px);
     -webkit-backdrop-filter: blur(6.6px);
     border: 1px solid rgba(255, 255, 255, 0.18);
-
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
 }
+
+.landing-padd {
+    padding: 0.7rem 0.5rem;
+    justify-content: center;
+}
+
+.square {
+    -webkit-clip-path: polygon(32% 1.2rem, 68% 1.2rem, 80% 0, 100% 0, 100% 100%, 0 100%, 0 0, 20% 0);
+    clip-path: polygon(32% 1.2rem, 68% 1.2rem, 70% 0, 100% 0, 100% 100%, 0 100%, 0 0, 30% 0);
+    height: 95vh;
+    width: 97vw;
+
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    background: rgba(255, 255, 255, 0.9);
+    filter: url(#round);
+}
+
+
+
+.menu-links {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: fit-content;
+    display: flex;
+}
+
+.left-m {
+    top: 20px;
+    left: 20px;
+
+    .menu {
+        li.item:nth-last-of-type(1) {
+            flex-flow: row;
+        }
+
+        li.item:hover {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        .icon {
+            height: 1.2rem;
+            width: 1.2rem;
+        }
+    }
+
+    .menu:hover {
+        background-color: #00000000;
+    }
+
+}
+
+.menu {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    padding: 5px 6px;
+    border-radius: 17px;
+
+    li.item {
+        all: unset;
+        width: fit-content;
+        height: 1.7rem;
+        border-radius: 12px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.2rem;
+
+        padding: 2px 1px;
+
+        .link-name {
+            visibility: hidden;
+            max-width: 0;
+            transition: max-width 0.5s;
+            font-size: 0.9rem;
+        }
+    }
+
+    li.item:nth-last-of-type(1) {
+        flex-flow: row-reverse;
+    }
+
+    li.item:hover {
+        cursor: pointer;
+
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 2px 4px;
+
+        .link-name {
+            visibility: visible;
+            max-width: 6rem;
+            transition: max-width 0.5s;
+            white-space: nowrap;
+
+        }
+
+        .icon {
+            color: #000000;
+        }
+    }
+
+}
+
+.icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: #00000050;
+    align-self: center;
+}
+
+.menu:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
 
 .landingTitle {
     font-size: 5rem;
     font-family: Font2;
     color: #000;
-    position: absolute;
-    top: 18rem;
+    position: relative;
     width: fit-content;
     align-self: center;
     word-spacing: 7rem;
@@ -31,56 +148,80 @@
 
 .about-me {
     //color: rgb(102, 47, 255);
-    position: absolute;
-    top: 25rem;
+    position: relative;
+    // top: 25rem;
     width: 50%;
     text-align: center;
 }
 
-
-.landingDiv {
-    width: 70%,
-}
-
-.blob:nth-of-type(1) {
+.blob {
     position: absolute;
     top: 50%;
 
-    height: 5px;
-    width: 5px;
+    height: 1px;
+    width: 1px;
     border-radius: 10rem;
     background-color: rgb(102, 47, 255);
     box-shadow: 0px 2px 150px 150px rgb(102, 47, 255);
 }
 
-.blob:nth-of-type(2) {
-    height: 1px;
-    width: 1px;
-    border-radius: 10rem;
-    background-color: rgb(104, 8, 239);
-    position: relative;
-    top: 58rem;
-    left: 38rem;
-    box-shadow: 0px 2px 100px 70px rgb(104, 8, 239);
-}
+@media screen and (max-width: 920px) {
+    .square {
+        height: 97vh;
+        width: 94vw;
+    }
 
-@media screen and (max-width: 400px) {
+    .landing-padd {
+        padding: 0;
+    }
+
     .landingTitle {
         font-size: 3rem;
-        top: 18rem;
         width: 100%;
         word-spacing: 5rem;
         text-align: center;
     }
 
     .about-me {
-        top: 24rem;
         width: 60%;
         text-align: center;
     }
 
+    .blob {
+        top: 50%;
+    }
 
-    .blob:nth-of-type(1) {
-        top: 39%;
+    .left-m {
+        top: 20px;
+        left: 20px;
+
+        .menu {
+            li.item {
+                flex-flow: row;
+            }
+        }
+    }
+
+
+    .menu-links {
+        flex-direction: column;
+        height: 94%;
+        justify-content: space-between;
+        top: 25px;
+        right: 25px;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: flex-end;
+
+
+        li.item {
+            flex-flow: row-reverse;
+        }
+    }
+
+    .menu:hover {
+        background-color: rgba(0, 0, 0, 0);
     }
 }

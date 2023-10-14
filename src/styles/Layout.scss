@@ -5,6 +5,7 @@
 }
 
 /* Desktop size */
+/*
 .col-1 {
     width: 8.33%;
 }
@@ -54,14 +55,16 @@
     position: absolute;
     height: fit-content;
 }
-
+*/
 @media only screen and (max-width: 768px) {
 
     /* For mobile phones: */
-    [class*="col-"] {
+    /* [class*="col-"] {
         width: 100%;
-    }
+    }*/
 }
+
+/*
 
 .row::after {
     content: "";
@@ -72,3 +75,5 @@
 [class*="col-"] {
     float: left;
 }
+
+*/

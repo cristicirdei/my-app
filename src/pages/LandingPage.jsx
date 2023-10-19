@@ -26,7 +26,7 @@ const LandingPage = () => {
 
       <div className="page landing-padd" style={{ backgroundColor: "#000" }}>
         <div className="square">
-          <svg
+          {/*  <svg
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
             display={"none"}
@@ -47,7 +47,7 @@ const LandingPage = () => {
                 <feComposite in="SourceGraphic" in2="goo" operator="atop" />
               </filter>
             </defs>
-          </svg>
+  </svg>*/}
         </div>
         <div className="menu-links left-m">
           <div className="menu">

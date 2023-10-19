@@ -224,6 +224,11 @@ const BooksReplay2023 = () => {
               />
             </div>
           </li>
+
+          <li className="white reveal">
+            <h1 className="black-text">Genres Timeline</h1>
+            <MoreStats data={{ books: books, type: "languages" }}></MoreStats>
+          </li>
         </ul>
       }
 

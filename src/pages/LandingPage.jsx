@@ -26,99 +26,97 @@ const LandingPage = () => {
       {/* <Header></Header>*/}
 
       <div className="page landing-padd" style={{ backgroundColor: "#000" }}>
-        <div className="square">
-          <div className="menu-links left-m">
-            <div className="menu">
-              <Link to="/books">
-                <li className="item">
-                  <IconContext.Provider
-                    value={{
-                      className: "icon",
-                    }}
-                  >
-                    <FaBook />
-                  </IconContext.Provider>
-                  <p className="link-name">Books</p>
-                </li>
-              </Link>
-            </div>
+        <div className="square"></div>
+        <div className="menu-links left-m">
+          <div className="menu">
+            <li className="item">
+              <IconContext.Provider
+                value={{
+                  className: "icon",
+                }}
+              >
+                <FaBook />
+              </IconContext.Provider>
+              <p className="link-name">Books</p>
+            </li>
           </div>
-          <div className="menu-links">
-            <div className="menu">
-              <li className="item">
-                <IconContext.Provider
-                  value={{
-                    className: "icon",
-                  }}
-                >
-                  <FaLinkedin />
-                </IconContext.Provider>
-                <p className="link-name">LinkedIn</p>
-              </li>
-              <li className="item">
-                <IconContext.Provider
-                  value={{
-                    className: "icon",
-                  }}
-                >
-                  <FaGithub />
-                </IconContext.Provider>
-                <p className="link-name">GitHub</p>
-              </li>
-            </div>
-            <div className="menu">
-              <li className="item">
-                <IconContext.Provider
-                  value={{
-                    className: "icon",
-                  }}
-                >
-                  <FaInstagram />
-                </IconContext.Provider>
-                <p className="link-name">Instagram</p>
-              </li>
-              <li className="item">
-                <IconContext.Provider
-                  value={{
-                    className: "icon",
-                  }}
-                >
-                  <FaGoodreads />
-                </IconContext.Provider>
-                <p className="link-name">Goodreads</p>
-              </li>
-
-              <li className="item">
-                <IconContext.Provider
-                  value={{
-                    className: "icon",
-                  }}
-                >
-                  <FaUnsplash />
-                </IconContext.Provider>
-                <p className="link-name">Unsplash</p>
-              </li>
-              <li className="item">
-                <Applemusic className="icon" />
-                <p className="link-name">Apple Music</p>
-              </li>
-              <li className="item">
-                <IconContext.Provider
-                  value={{
-                    className: "icon",
-                  }}
-                >
-                  <FaLastfm />
-                </IconContext.Provider>
-                <p className="link-name">Last.fm</p>
-              </li>
-              <li className="item">
-                <Letterboxd className="icon" />
-                <p className="link-name">Letterboxd</p>
-              </li>
-            </div>
+        </div>
+        <div className="menu-links">
+          <div className="menu">
+            <li className="item">
+              <IconContext.Provider
+                value={{
+                  className: "icon",
+                }}
+              >
+                <FaLinkedin />
+              </IconContext.Provider>
+              <p className="link-name">LinkedIn</p>
+            </li>
+            <li className="item">
+              <IconContext.Provider
+                value={{
+                  className: "icon",
+                }}
+              >
+                <FaGithub />
+              </IconContext.Provider>
+              <p className="link-name">GitHub</p>
+            </li>
           </div>
+          <div className="menu">
+            <li className="item">
+              <IconContext.Provider
+                value={{
+                  className: "icon",
+                }}
+              >
+                <FaInstagram />
+              </IconContext.Provider>
+              <p className="link-name">Instagram</p>
+            </li>
+            <li className="item">
+              <IconContext.Provider
+                value={{
+                  className: "icon",
+                }}
+              >
+                <FaGoodreads />
+              </IconContext.Provider>
+              <p className="link-name">Goodreads</p>
+            </li>
 
+            <li className="item">
+              <IconContext.Provider
+                value={{
+                  className: "icon",
+                }}
+              >
+                <FaUnsplash />
+              </IconContext.Provider>
+              <p className="link-name">Unsplash</p>
+            </li>
+            <li className="item">
+              <Applemusic className="icon" />
+              <p className="link-name">Apple Music</p>
+            </li>
+            <li className="item">
+              <IconContext.Provider
+                value={{
+                  className: "icon",
+                }}
+              >
+                <FaLastfm />
+              </IconContext.Provider>
+              <p className="link-name">Last.fm</p>
+            </li>
+            <li className="item">
+              <Letterboxd className="icon" />
+              <p className="link-name">Letterboxd</p>
+            </li>
+          </div>
+        </div>
+        <div className="square-content">
           <div className="blob"></div>
           <h1 className="landingTitle">cristi cîrdei</h1>
           <p className="about-me">

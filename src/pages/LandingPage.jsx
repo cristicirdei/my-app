@@ -12,7 +12,6 @@ import {
 } from "react-icons/fa";
 import { ReactComponent as Letterboxd } from "../resources/icons/letterboxed.svg";
 import { ReactComponent as Applemusic } from "../resources/icons/apple-music.svg";
-import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   /*const [media, setMedia] = useState(0);

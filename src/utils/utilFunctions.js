@@ -42,6 +42,37 @@ export const getPagesPerMonth = (books_) => {
   return pages_per_month;
 };
 
+export const getGenresPerMonth = (books_) => {
+  const books = structuredClone(books_);
+  let genres_per_month = Array(12)
+    .fill(0)
+    .map(() => Array(3).fill(0));
+
+  books.map((b, index) => {
+    let x = 0;
+    if (b.genres.includes("Fiction")) {
+      x = 0;
+    }
+
+    if (b.genres.includes("Non-Fiction")) {
+      x = 2;
+    }
+    if (b.genres.includes("Poetry")) {
+      x = 1;
+    }
+
+    genres_per_month[parseInt(b.read[b.read.length - 1].end.slice(5, 7)) - 1][
+      x
+    ] =
+      genres_per_month[parseInt(b.read[b.read.length - 1].end.slice(5, 7)) - 1][
+        x
+      ] + 1;
+    return genres_per_month;
+  });
+
+  return genres_per_month;
+};
+
 export const parceCSV = (data) => {
   let read_books, tbr_books;
   Papa.parse(data, {

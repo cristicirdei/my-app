@@ -15,22 +15,23 @@
 }
 
 .landing-padd {
-    padding: 0.7rem 0.5rem;
+    padding: 0.5rem;
     justify-content: center;
 }
 
 .square {
     -webkit-clip-path: polygon(32% 1.2rem, 68% 1.2rem, 80% 0, 100% 0, 100% 100%, 0 100%, 0 0, 20% 0);
     clip-path: polygon(32% 1.2rem, 68% 1.2rem, 70% 0, 100% 0, 100% 100%, 0 100%, 0 0, 30% 0);
-    height: 95vh;
-    width: 98vw;
-
+    height: calc(100% - 1.5rem);
+    width: calc(100% - 1.5rem);
     border-radius: 30px;
     background: rgba(255, 255, 255, 1);
     position: absolute;
 
+    display: table-cell;
+    vertical-align: top;
+
     z-index: 0;
-    margin: 0;
 }
 
 .square-content {
@@ -47,15 +48,15 @@
 
 .menu-links {
     position: absolute;
-    top: 40px;
-    right: 40px;
+    top: 35px;
+    right: 35px;
     width: fit-content;
     display: flex;
 }
 
 .left-m {
-    top: 40px;
-    left: 40px;
+    top: 35px;
+    left: 35px;
 
     .menu {
         li.item {
@@ -102,7 +103,7 @@
         justify-content: center;
         gap: 0.2rem;
 
-        padding: 2px 1px;
+        padding: 2px 4px;
 
         .link-name {
             visibility: hidden;
@@ -183,10 +184,7 @@
 @media screen and (max-width: 920px) {
 
     .square,
-    .square-content {
-        height: 97vh;
-        width: 95vw;
-    }
+    .square-content {}
 
     .landing-padd {
         padding: 0;
@@ -222,10 +220,11 @@
 
     .menu-links {
         flex-direction: column;
-        height: 93%;
+        height: 97vh;
         justify-content: space-between;
         top: 30px;
         right: 30px;
+        padding-bottom: 30px;
 
 
     }

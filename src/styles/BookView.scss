@@ -206,14 +206,7 @@
 
     background-color: #E5E4E2;
 
-    .close {
-        opacity: 0.6;
-        margin: 0.5rem;
-        width: 1.5rem;
-        position: relative;
-        top: -45%;
-        // right: 0;
-    }
+
 
 
 }
@@ -429,6 +422,21 @@
 
 
 @media only screen and (min-width: 960px) {
+
+    .close {
+        opacity: 0.6;
+        width: fit-content;
+        order: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 0.5rem;
+
+        img {
+            width: 1.5rem;
+        }
+    }
+
     .year-books {
         height: fit-content;
         width: 96%;

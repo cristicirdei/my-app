@@ -155,12 +155,9 @@ const BookView = ({ data }) => {
           <Impression type={i.toLowerCase()} />
         ))}
       </div>
-      <img
-        src={close}
-        className="close"
-        onClick={(e) => data.on_close()}
-        alt=""
-      />
+      <div className="close">
+        <img src={close} onClick={(e) => data.on_close()} alt="" />
+      </div>
     </div>
   );
 };

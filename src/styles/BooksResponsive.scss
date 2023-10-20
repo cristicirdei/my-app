@@ -93,7 +93,7 @@
                     height: 10rem;
                     width: 0.5rem;
                     position: relative;
-                    top: -10.22rem;
+                    top: -10.25rem;
                     left: 0.0rem;
 
                     background: -webkit-linear-gradient(-40deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.15));
@@ -103,7 +103,7 @@
                     height: 10rem;
                     width: 0.07rem;
                     position: relative;
-                    top: -20.22rem;
+                    top: -20.25rem;
                     left: 0.5rem;
 
                     background: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 0.5));
@@ -261,12 +261,15 @@
 
         .close {
             opacity: 0.6;
-            margin: 0.5rem;
-            width: 1.5rem;
-            position: relative;
-            top: -45%;
-            left: 95%;
+            width: 100%;
             order: 1;
+            display: flex;
+            justify-content: flex-end;
+            padding: 0.5rem;
+
+            img {
+                width: 1.5rem;
+            }
         }
 
     }
@@ -402,7 +405,6 @@
             gap: 1rem;
             width: 90%;
             padding-top: 1rem;
-            line-height: 80%;
 
             h1 {
                 font-size: 1.5rem;

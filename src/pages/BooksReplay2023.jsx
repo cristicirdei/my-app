@@ -12,6 +12,7 @@ import {
   getBooksPerMonth,
   getTotalPagesRead,
   getPagesPerMonth,
+  getGenresPerMonth,
 } from "../utils/utilFunctions";
 
 import { LineChart } from "@mui/x-charts";
@@ -33,16 +34,19 @@ const BooksReplay2023 = () => {
 
   const [data, setData] = useState({
     totalPages: 0,
-    booksPerMonth: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    pagesPerMonth: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    booksPerMonth: Array(12).fill(0),
+    pagesPerMonth: Array(12).fill(0),
+    genresPerMonth: Array(12)
+      .fill(0)
+      .map(() => Array(3).fill(0)),
   });
   useEffect(() => {
     setData({
       totalPages: getTotalPagesRead(books),
       booksPerMonth: getBooksPerMonth(books),
       pagesPerMonth: getPagesPerMonth(books),
+      genresPerMonth: getGenresPerMonth(books),
     });
-
     return () => {
       // Cleanup function to clear data
       setData([]);
@@ -147,8 +151,24 @@ const BooksReplay2023 = () => {
           </li>
 
           <li className="white reveal">
-            <h1 className="orange-text">Languages</h1>
-            <MoreStats data={{ books: books, type: "languages" }}></MoreStats>
+            <h1 className="black-text">Genres Timeline</h1>
+            <div className="g-y">
+              {data?.genresPerMonth.map((g, index) => (
+                <div className="g-m">
+                  {g.map((s, index) => (
+                    <div
+                      className="g-seg"
+                      style={{ height: s + (5 * s) / 10 + "rem" }}
+                    ></div>
+                  ))}
+                </div>
+              ))}
+            </div>
+            <p className="legend">
+              <span>Fiction</span>
+              <span>Poetry</span>
+              <span>Non-Fiction</span>
+            </p>
           </li>
 
           <li className="no-background reveal">
@@ -159,6 +179,11 @@ const BooksReplay2023 = () => {
           <li className="orange reveal">
             <h1 className="black-text">Formats</h1>
             <MoreStats data={{ books: books, type: "formats" }}></MoreStats>
+          </li>
+
+          <li className="white reveal">
+            <h1 className="orange-text">Languages</h1>
+            <MoreStats data={{ books: books, type: "languages" }}></MoreStats>
           </li>
 
           <li className="no-background shorten reveal">
@@ -223,11 +248,6 @@ const BooksReplay2023 = () => {
                 }}
               />
             </div>
-          </li>
-
-          <li className="white reveal">
-            <h1 className="black-text">Genres Timeline</h1>
-            <MoreStats data={{ books: books, type: "languages" }}></MoreStats>
           </li>
         </ul>
       }

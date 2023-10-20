@@ -89,7 +89,7 @@
             }
 
             .light {
-                height: 15rem;
+                height: 14.5rem;
                 width: 0.07rem;
                 position: relative;
                 top: -30.5rem;
@@ -318,7 +318,8 @@
 
         .book:hover .book-cover {
             margin-left: 0.5rem;
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.8rem;
+            margin-right: 0.1rem;
         }
 
         .book:hover .ticket {

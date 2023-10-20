@@ -1028,9 +1028,55 @@ ol {
     opacity: 1;
 }
 
+.g-y {
+    display: flex;
+    gap: 3px;
+
+    .g-m {
+        width: 8%;
+        display: flex;
+        flex-direction: column;
+        // gap: 1px;
+        justify-content: center;
+
+        .g-seg {
+            border-radius: 5px;
+
+        }
+
+        .g-seg:nth-of-type(3n+1) {
+            background-color: $replayColor2;
+        }
+
+        .g-seg:nth-of-type(3n+2) {
+            background-color: $replayColor1;
+        }
+
+        .g-seg:nth-of-type(3n+0) {
+            background-color: $replayDark;
+        }
+    }
+}
+
+.legend {
+    font-size: 0.7rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 5px;
+
+    span:nth-of-type(1) {
+        color: $replayColor2
+    }
+
+    span:nth-of-type(2) {
+        color: $replayColor1
+    }
+}
 
 @media only screen and (min-width: 960px) {
-   
+
 
     ol {
         width: 800px;
@@ -1088,8 +1134,8 @@ ol {
         }
 
         .blob:nth-of-type(1) {
-            left: 10%;
-            margin-top: -10%;
+            left: 30%;
+            //margin-top: -10%;
             background-color: $replayColor1;
             box-shadow: 0px 2px 50px 70px $replayColor1;
             animation: blob1 15s infinite;

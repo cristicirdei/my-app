@@ -225,7 +225,7 @@ export const books = [
     language: "English",
     length: 89,
     medium: "eBook",
-    genres: ["Poetry", , "Contemporary"],
+    genres: ["Poetry", "Contemporary"],
     read: [{ start: `2023-02-16`, end: `2023-02-25` }],
     rating: 4,
     review: ``,

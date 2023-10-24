@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { IconContext } from "react-icons";
 import {
@@ -14,41 +14,25 @@ import { ReactComponent as Letterboxd } from "../resources/icons/letterboxed.svg
 import { ReactComponent as Applemusic } from "../resources/icons/apple-music.svg";
 
 const LandingPage = () => {
-  /*const [media, setMedia] = useState(0);
-
   useEffect(() => {
-    setMedia(window.matchMedia("(min-width: 768px)").matches);
-  }, []);*/
+    document.querySelector("a").addEventListener("click", function (e) {
+      const self = this;
+      /*const notif = document.createElement("h1");
+      notif.classList = "link-notif";
+      notif.innerHTML = "Going to " + self.href;
+      document.appendChild(notif);*/
+      setTimeout(function () {
+        window.location.href = self.href;
+      }, 2000);
+    });
+  }, []);
 
   return (
     <>
       {/* <Header></Header>*/}
 
       <div className="page landing-padd" style={{ backgroundColor: "#000" }}>
-        <div className="square">
-          {/*  <svg
-            xmlns="http://www.w3.org/2000/svg"
-            version="1.1"
-            display={"none"}
-          >
-            <defs>
-              <filter id="round">
-                <feGaussianBlur
-                  in="SourceGraphic"
-                  stdDeviation="15"
-                  result="blur"
-                />
-                <feColorMatrix
-                  in="blur"
-                  mode="matrix"
-                  values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-                  result="goo"
-                />
-                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-              </filter>
-            </defs>
-  </svg>*/}
-        </div>
+        <div className="square"></div>
         <div className="menu-links left-m">
           <div className="menu">
             <li className="item">
@@ -65,77 +49,120 @@ const LandingPage = () => {
         </div>
         <div className="menu-links">
           <div className="menu">
-            <li className="item">
-              <p className="link-name">LinkedIn</p>
-              <IconContext.Provider
-                value={{
-                  className: "icon",
-                }}
-              >
-                <FaLinkedin />
-              </IconContext.Provider>
-            </li>
-            <li className="item">
-              <p className="link-name">GitHub</p>
-              <IconContext.Provider
-                value={{
-                  className: "icon",
-                }}
-              >
-                <FaGithub />
-              </IconContext.Provider>
-            </li>
+            <a
+              className="item"
+              href="https://linkedin.com/in/cristiancirdei"
+              rel="noreferrer"
+            >
+              <li className="item">
+                <p className="link-name">LinkedIn</p>
+                <IconContext.Provider
+                  value={{
+                    className: "icon",
+                  }}
+                >
+                  <FaLinkedin />
+                </IconContext.Provider>
+              </li>
+            </a>
+            <a
+              className="item"
+              href="https://github.com/cristicirdei"
+              rel="noreferrer"
+            >
+              <li className="item">
+                <p className="link-name">GitHub</p>
+                <IconContext.Provider
+                  value={{
+                    className: "icon",
+                  }}
+                >
+                  <FaGithub />
+                </IconContext.Provider>
+              </li>
+            </a>
           </div>
           <div className="menu">
-            <li className="item">
-              <p className="link-name">Instagram</p>
-              <IconContext.Provider
-                value={{
-                  className: "icon",
-                }}
-              >
-                <FaInstagram />
-              </IconContext.Provider>
-            </li>
-            <li className="item">
-              <p className="link-name">Goodreads</p>
-              <IconContext.Provider
-                value={{
-                  className: "icon",
-                }}
-              >
-                <FaGoodreads />
-              </IconContext.Provider>
-            </li>
-
-            <li className="item">
-              <p className="link-name">Unsplash</p>
-              <IconContext.Provider
-                value={{
-                  className: "icon",
-                }}
-              >
-                <FaUnsplash />
-              </IconContext.Provider>
-            </li>
-            <li className="item">
-              <p className="link-name">Apple Music</p>
-              <Applemusic className="icon" />
-            </li>
-            <li className="item">
-              <p className="link-name">Last.fm</p>
-              <IconContext.Provider
-                value={{
-                  className: "icon",
-                }}
-              >
-                <FaLastfm />
-              </IconContext.Provider>
-            </li>
-            <li className="item">
-              <p className="link-name">Letterboxd</p>
-              <Letterboxd className="icon" />
-            </li>
+            <a
+              className="item"
+              href="https://instagram.com/cristi_cirdei"
+              rel="noreferrer"
+            >
+              <li className="item">
+                <p className="link-name">Instagram</p>
+                <IconContext.Provider
+                  value={{
+                    className: "icon",
+                  }}
+                >
+                  <FaInstagram />
+                </IconContext.Provider>
+              </li>
+            </a>
+            <a
+              className="item"
+              href="https://goodreads.com/user/show/150642989"
+              rel="noreferrer"
+            >
+              <li className="item">
+                <p className="link-name">Goodreads</p>
+                <IconContext.Provider
+                  value={{
+                    className: "icon",
+                  }}
+                >
+                  <FaGoodreads />
+                </IconContext.Provider>
+              </li>
+            </a>
+            <a
+              className="item"
+              href="https://unsplash.com/@cristi_cirdei?utm_source=unsplash&utm_campaign=unsplash-ios&utm_medium=referral&utm_content=credit-photographer"
+              rel="noreferrer"
+            >
+              <li className="item">
+                <p className="link-name">Unsplash</p>
+                <IconContext.Provider
+                  value={{
+                    className: "icon",
+                  }}
+                >
+                  <FaUnsplash />
+                </IconContext.Provider>
+              </li>
+            </a>
+            <a
+              className="item"
+              href="https://music.apple.com/profile/cirdeicristi24"
+              rel="noreferrer"
+            >
+              <li className="item">
+                <p className="link-name">Apple Music</p>
+                <Applemusic className="icon" />
+              </li>
+            </a>
+            <a
+              className="item"
+              href="https://www.last.fm/user/cristi-c"
+              rel="noreferrer"
+            >
+              <li className="item">
+                <p className="link-name">Last.fm</p>
+                <IconContext.Provider
+                  value={{
+                    className: "icon",
+                  }}
+                >
+                  <FaLastfm />
+                </IconContext.Provider>
+              </li>
+            </a>
+            <a className="item" href="https://boxd.it/3lD0f" rel="noreferrer">
+              <li className="item">
+                <p className="link-name">Letterboxd</p>
+                <Letterboxd className="icon" />
+              </li>
+            </a>
           </div>
         </div>
         <div className="square-content">

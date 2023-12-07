@@ -61,7 +61,7 @@ $replayBackground: #E5E4E2;
 $replayDark: #2B292A;
 
 .banner-2023 {
-    width: 90%;
+    width: 80%;
     height: 10rem;
     background-color: #121212;
     color: $replayBackground;
@@ -206,6 +206,9 @@ $replayDark: #2B292A;
     padding-bottom: 10rem;
     margin: 0;
     width: 100%;
+
+    position: absolute;
+    top: 0;
 }
 
 .replay-page-title {
@@ -214,9 +217,9 @@ $replayDark: #2B292A;
 }
 
 .about {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #fff;
-    width: 90%;
+    width: 85%;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -224,11 +227,16 @@ $replayDark: #2B292A;
 
     h1 {
         font-size: 1.5rem;
+        padding: 0.5rem 0;
+    }
+
+    h2 {
+        font-size: 1.3rem;
         padding-top: 0.5rem;
     }
 
     p {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 
     span {
@@ -416,6 +424,8 @@ ul {
     width: 100%;
     border-spacing: 0;
     border-radius: 10px;
+
+
 
     tr:nth-of-type(4n+0) {
         .line {
@@ -899,7 +909,7 @@ ul {
     }
 }
 
-ol {
+ol.brp {
     all: unset;
     width: 95%;
     display: flex;
@@ -1076,8 +1086,6 @@ ol {
 }
 
 @media only screen and (min-width: 960px) {
-
-
     ol {
         width: 800px;
 
@@ -1120,6 +1128,22 @@ ol {
 
         h1 {
             width: 50%;
+        }
+    }
+
+
+    .g-y {
+        display: flex;
+        gap: 3px;
+        justify-content: space-around;
+
+        .g-m {
+            width: 5%;
+            display: flex;
+            flex-direction: column;
+            // gap: 1px;
+            justify-content: center;
+
         }
     }
 }
@@ -1210,12 +1234,14 @@ ol {
         }
 
     }
+
 }
 
 @media only screen and (max-width: 420px) {
     .banner-2023 {
         font-size: 3rem;
         height: 8rem;
+        width: 85%;
 
         .arrow {
             height: 2rem;

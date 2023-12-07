@@ -1,0 +1,442 @@
+@import "Master";
+
+@font-face {
+    font-family: mainFont;
+    src: url("../resources/fonts/Sinistre-SÔÇáCaroline.otf");
+}
+
+@font-face {
+    font-family: bookTitleFont;
+    src: url("../resources/fonts/Vollkorn-Bold.ttf");
+}
+
+@font-face {
+    font-family: bookSubTitleFont;
+    src: url("../resources/fonts/Vollkorn-Semibold.ttf");
+}
+
+@font-face {
+    font-family: bookDetailsFont;
+    src: url("../resources/fonts/Vollkorn-Regular.ttf");
+}
+
+@font-face {
+    font-family: PlayfairRegular;
+    src: url("../resources/fonts/PlayfairDisplay-Regular.ttf");
+}
+
+@font-face {
+    font-family: AmiriRegular;
+    src: url("../resources/fonts/Amiri-Regular.ttf");
+}
+
+@font-face {
+    font-family: AmiriBold;
+    src: url("../resources/fonts/Amiri-Bold.ttf");
+}
+
+@font-face {
+    font-family: AmiriItalic;
+    src: url("../resources/fonts/Amiri-Italic.ttf");
+}
+
+@font-face {
+    font-family: AmiriBoldItalic;
+    src: url("../resources/fonts/Amiri-BoldItalic.ttf");
+}
+
+@font-face {
+    font-family: VinaSansRegular;
+    src: url("../resources/fonts/VinaSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: RobotoBold;
+    src: url("../resources/fonts/Roboto-Bold.ttf");
+}
+
+@font-face {
+    font-family: RobotoMedium;
+    src: url("../resources/fonts/Roboto-Medium.ttf");
+}
+
+@font-face {
+    font-family: RobotoItalic;
+    src: url("../resources/fonts/Roboto-Italic.ttf");
+}
+
+@font-face {
+    font-family: RobotoRegular;
+    src: url("../resources/fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: RobotoLight;
+    src: url("../resources/fonts/Roboto-Light.ttf");
+}
+
+@font-face {
+    font-family: ExoBold;
+    src: url("../resources/fonts/Exo-Bold.ttf");
+}
+
+@font-face {
+    font-family: ExoLight;
+    src: url("../resources/fonts/Exo-Thin.ttf");
+}
+
+@font-face {
+    font-family: ExoRegular;
+    src: url("../resources/fonts/Exo-Regular.ttf");
+}
+
+
+::selection {
+    color: white;
+    background: rgb(92, 92, 92);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.blog-cover {
+    display: flex;
+    padding: 1.5rem;
+    gap: 1.5rem;
+
+    height: 30rem;
+    position: relative;
+
+
+    .banner {
+        width: 60%;
+        height: 100%;
+        margin-bottom: 7rem;
+
+        .banner-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+
+            background-color: black;
+            object-fit: cover;
+            margin-bottom: -5rem;
+        }
+
+        .banner-shadow {
+            width: 100%;
+            height: 5rem;
+            position: relative;
+
+            background: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1.0));
+        }
+    }
+
+    .front-page {
+        grid-area: title;
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        height: 100%;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 2rem;
+
+        border-radius: 25px;
+        background-color: #dfdfdf;
+        color: #000000;
+
+        #title-line-one {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        #badge {
+            all: unset;
+            height: 2.5rem;
+            width: 2.5rem;
+            border-radius: 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .icon {
+                color: #000000;
+                width: 1.25rem;
+                max-height: 2.5rem;
+            }
+
+            .bubble-icon {
+                color: #000000;
+                width: 1.25rem;
+                margin-top: 5px;
+                max-height: 3rem;
+            }
+        }
+
+        #blog-title {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+
+
+            .title {
+                font-size: 3rem;
+                font-family: ExoBold;
+                text-align: end;
+                width: fit-content;
+                line-height: 95%;
+            }
+
+            .subtitle {
+                font-size: 2rem;
+                font-family: ExoRegular;
+                text-align: end;
+                max-width: 95%;
+            }
+        }
+
+        #preface {
+            width: 100%;
+            text-align: left;
+            margin-top: 3rem;
+
+            #text {
+                font-family: ExoRegular;
+                width: 50%;
+                font-size: 0.9rem;
+            }
+        }
+
+    }
+
+    .details {
+        position: absolute;
+        border-radius: 25px;
+        background-color: #000000;
+        color: #fff;
+        border: 5px solid #fff;
+        padding: 10px;
+        right: 5rem;
+        bottom: 0px;
+
+        #time {
+            font-family: RobotoRegular;
+            border-radius: 25px;
+        }
+    }
+
+}
+
+
+
+
+.content {
+    display: flex;
+    flex-direction: row;
+
+    .side {
+        height: auto;
+        width: 25%;
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 1.5rem;
+
+        nav {
+            //  position: -webkit-sticky;
+            /* for Safari */
+            // position: sticky;
+            // top: 5rem;
+            // align-self: flex-start;
+            /* <-- this is the fix */
+
+            width: 85%;
+            align-self: flex-start;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 24px;
+            max-height: calc(100vh - 70px);
+            overflow: auto;
+
+            border-radius: 25px;
+            background-color: #f4f4f4;
+
+            font-family: ExoRegular;
+
+            font-size: 1.25rem;
+            font-family: ExoRegular;
+            padding: 1rem;
+
+            ul {
+                align-items: flex-start;
+
+                li {
+
+                    a {
+                        font-family: ExoRegular;
+                        color: rgb(142, 142, 142);
+                    }
+
+                    font-size: 1.1rem;
+                    padding: 0;
+                    color: rgb(142, 142, 142);
+
+                    margin-top: -0.7rem;
+                }
+
+                li:nth-of-type(1) {
+                    font-family: ExoBold;
+                    color: rgb(0, 0, 0);
+                    margin-top: 0;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+
+        .active {
+            color: red;
+        }
+    }
+
+    .side-right {
+        height: auto;
+        width: 25%;
+    }
+
+    .article {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+
+        padding: 0 0.5rem;
+        font-family: RobotoRegular;
+
+        p {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-family: RobotoRegular;
+        }
+
+        h3 {
+            font-size: 1.7rem;
+            font-weight: bold;
+            margin: 3rem 0 1rem 0;
+            font-family: RobotoBold;
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 2rem 0 1rem 0;
+            font-family: RobotoMedium;
+        }
+
+        mark {
+            background: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0), rgb(167, 255, 5));
+
+        }
+
+        blockquote {
+            font-size: 1.7rem;
+            font-family: ExoBold;
+            line-height: 90%;
+            max-width: 100%;
+            align-self: center;
+            margin: 2rem 0;
+            position: relative;
+
+            padding: 1rem 5rem;
+            border-radius: 25px;
+
+            .quote-icon {
+                position: absolute;
+                left: 1rem;
+                top: 0.5rem;
+                width: 3rem;
+                color: #fcfcfc;
+            }
+        }
+
+        cite {
+            font-family: RobotoItalic;
+        }
+
+        .footnote {
+            border-radius: 10px;
+            font-size: 0.7rem;
+            vertical-align: super;
+            opacity: 1;
+            margin: 2px 4px 2px 2px;
+
+
+        }
+
+        ol.footnotes {
+            border-top: 1px solid gray;
+            padding: 1rem 2rem;
+            margin-top: 2rem;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            list-style-type: decimal-leading-zero;
+
+            gap: 0;
+
+            li {
+                font-family: RobotoLight;
+                padding: 0;
+            }
+        }
+
+        figure {
+            all: unset;
+            width: 100%;
+            align-self: center;
+            margin: 2rem 0;
+            border-radius: 25px;
+            padding: 10px;
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+
+            img {
+                width: 100%;
+                border-radius: 7px;
+                background-color: gray;
+            }
+
+            figcaption {
+                font-size: 0.8rem;
+                float: right;
+                font-family: RobotoLight;
+                background-color: black;
+                color: white;
+                border: solid 3px #fff;
+                border-radius: 25px;
+                padding: 6px 8px;
+
+                max-width: 50%;
+                position: absolute;
+                right: 3rem;
+                bottom: -1rem;
+            }
+        }
+    }
+}
+
+.head3 {
+    margin-left: 0px;
+    list-style-type: circle;
+}
+
+.head4 {
+    margin-left: 10px;
+    list-style-type: square;
+}
+
+
+@media only screen and (min-width: 960px) {}

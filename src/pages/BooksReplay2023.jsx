@@ -83,12 +83,18 @@ const BooksReplay2023 = () => {
       <h1 className="replay-page-title one">Books Rewind '23</h1>
 
       <div className="about ">
-        <h1>Section title</h1>
+        <h1>Year in Review</h1>
+        <h2>Reader's Journey</h2>
         <p>
-          This year I've read some books. Again.
+          If I would <i>examine</i> my past carefully I would probably come
+          across the moment where I first took on the endeavor of reading a
+          book. Years later, I am living in the shadow of that moment.
+        </p>
+        <p>I have always been </p>
+        <h2>Section title</h2>
+        <p>
           <span> book title</span>
         </p>
-        <h1>Section title</h1>
       </div>
 
       <div className={"year-books "}>
@@ -122,9 +128,9 @@ const BooksReplay2023 = () => {
             <div className="goal one">
               <h2>30</h2>
               <h2>{">"}</h2>
-              <h2>33</h2>
+              <h2>39</h2>
             </div>
-            <p className="upper">3 books above set goal</p>
+            <p className="upper">9 books above set goal</p>
           </li>
 
           <li className="white reveal">
@@ -253,7 +259,7 @@ const BooksReplay2023 = () => {
       }
 
       {
-        <ol>
+        <ol className="brp">
           <li>
             <p className="pink-text">64 pages</p>
             <h1>

@@ -248,7 +248,7 @@
 
     .book-view-container {
         height: fit-content;
-        width: 100%;
+        width: 110%;
         margin: 0;
         padding: 0;
         border-radius: 15px;
@@ -266,6 +266,7 @@
             display: flex;
             justify-content: flex-end;
             padding: 0.5rem;
+            margin-bottom: -2rem;
 
             img {
                 width: 1.5rem;
@@ -406,13 +407,14 @@
             width: 90%;
             padding-top: 1rem;
 
+
             h1 {
                 font-size: 1.5rem;
                 margin-top: 1rem;
                 font-family: bookTitleFont;
                 display: flex;
                 justify-content: center;
-
+                text-align: center;
             }
 
             h2 {
@@ -421,6 +423,7 @@
                 font-family: bookSubTitleFont;
                 display: flex;
                 justify-content: center;
+                text-align: center;
             }
 
             h3 {

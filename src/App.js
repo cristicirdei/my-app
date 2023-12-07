@@ -12,12 +12,14 @@ import "./styles/BookView.scss";
 import "./styles/Books.scss";
 import "./styles/BooksResponsive.scss";
 import "./styles/Stats.scss";
+import "./styles/BlogPost.scss";
 
 // components
 import LandingPage from "./pages/LandingPage";
 import DesignSystem from "./pages/DesignSystem";
 import Books from "./pages/Books";
 import BooksReplay2023 from "./pages/BooksReplay2023";
+import BlogPost from "./pages/BlogPost";
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
           <Route exact path="/ds" element={<DesignSystem />} />
           <Route exact path="/books" element={<Books />} />
           <Route exact path="/booksreplay2023" element={<BooksReplay2023 />} />
+          <Route exact path="/blogpost" element={<BlogPost />} />
         </Routes>
       </BrowserRouter>
       {/*<BrowserRouter>

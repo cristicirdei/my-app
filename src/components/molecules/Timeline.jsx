@@ -16,6 +16,39 @@ const Timeline = ({ data }) => {
     "Dec",
   ];
 
+  const get_day_of_year = (now) => {
+    let start = new Date(now.getFullYear(), 0, 0);
+    let diff =
+      now -
+      start +
+      (start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000;
+    let oneDay = 1000 * 60 * 60 * 24;
+    let day = Math.floor(diff / oneDay);
+    return day;
+  };
+
+  const quarter_of_month = (date) => {
+    const quarters_borders = [
+      0, 8, 16, 24, 31, 38, 45, 52, 60, 68, 76, 84, 91, 98, 105, 113, 121, 129,
+      137, 145, 152, 159, 166, 174, 182, 190, 198, 206, 213, 221, 229, 237, 244,
+      251, 258, 266, 274, 282, 290, 298, 305, 312, 319, 327, 335, 343, 351, 359,
+      366,
+    ];
+
+    const day = get_day_of_year(date);
+    let quarter = 0;
+
+    for (let i = 1; i < 50; i++) {
+      if (day > quarters_borders[i - 1] && day <= quarters_borders[i]) {
+        quarter = i;
+        break;
+      }
+    }
+
+    return quarter;
+  };
+  quarter_of_month(new Date());
+
   // eslint-disable-next-line no-extend-native
   Date.prototype.getWeek = function () {
     let date = new Date(this.getTime());
@@ -33,12 +66,25 @@ const Timeline = ({ data }) => {
     );
   };
 
-  const getWeeks = (book) => {
+  const getWeeks2 = (book) => {
     let s = new Date(Date.parse(book.read.slice(-1)[0].start)).getWeek();
     let e = new Date(Date.parse(book.read.slice(-1)[0].end)).getWeek();
     if (s > e) {
       s = 0;
     }
+    return [s, e];
+  };
+
+  const getWeeks = (book) => {
+    let s = quarter_of_month(
+      new Date(Date.parse(book.read.slice(-1)[0].start))
+    );
+    let e = quarter_of_month(new Date(Date.parse(book.read.slice(-1)[0].end)));
+
+    if (s > e) {
+      s = 0;
+    }
+
     return [s, e];
   };
 
@@ -90,7 +136,11 @@ const Timeline = ({ data }) => {
                   }
                 >
                   <p className="shown-title">
-                    {showTitles && index === getWeeks(book)[1]
+                    {showTitles +
+                      " " +
+                      getWeeks(book)[0] +
+                      "-" +
+                      getWeeks(book)[1] && index === getWeeks(book)[1]
                       ? book.title
                       : ""}
                   </p>

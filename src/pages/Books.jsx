@@ -7,6 +7,7 @@ import { IconContext } from "react-icons";
 import { FaChevronRight } from "react-icons/fa";
 
 import { useNavigate } from "react-router-dom";
+import Header from "../components/molecules/Header";
 
 const Books = () => {
   const navigate = useNavigate();
@@ -68,15 +69,48 @@ const Books = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setBookCovers();
+  });
+
   const [isShown, setIsShown] = useState(false);
-  const [isShownTBR, setIsShownTBR] = useState(false);
+  const [color, setColor] = useState("#fff");
   const [shownBook, setShownBook] = useState(false);
+
+  const setBookCovers = () => {
+    const colors = [
+      "#4a7eae",
+      "#f1536c",
+      "#2b292a",
+      "#cba230",
+      "#b2a66a",
+      "#9a7048",
+    ];
+
+    const books = document.getElementsByClassName("book-cover");
+
+    for (let i = 0; i < books.length; i++) {
+      books[i].style.backgroundColor = colors[i % 6];
+    }
+  };
+
+  const changeColor = (change, id = null) => {
+    if (change) {
+      const elem = document.getElementById(id);
+      const bg_color = elem.style.backgroundColor;
+
+      setColor(bg_color);
+      console.log(elem.style, "-", id, "color", bg_color);
+    } else {
+      setColor("#fff");
+    }
+  };
 
   return (
     <>
+      <Header></Header>
       <div className="page">
         <h1 className="books-page-title">Books</h1>
-
         <div className="favourites">
           <h1>favourites</h1>
           <div className="container">
@@ -129,25 +163,6 @@ const Books = () => {
             </div>
           </div>
         </div>
-
-        <div
-          className="banner-2023"
-          onClick={() => navigate("/booksreplay2023")}
-        >
-          <div className="blob"></div> <div className="blob"></div>
-          <div className="blob"></div>
-          <h1 className="one">
-            {"2023 Books Rewind "}
-            <IconContext.Provider
-              value={{
-                className: "arrow",
-              }}
-            >
-              <FaChevronRight />
-            </IconContext.Provider>
-          </h1>
-        </div>
-
         {/*<div id="gr_updates_widget">
           <iframe
             sandbox="allow-scripts"
@@ -166,36 +181,69 @@ const Books = () => {
             </a>
           </div>
             </div>*/}
-
-        <div className="shelf">
-          <h1>
-            Read Books <span>{read_books?.length}</span>
-          </h1>
-          <div className="book-shelf">
-            {read_books?.map((b, index) => (
-              <div
-                className="book"
-                onMouseEnter={() => {
-                  setIsShown(true);
-                  setShownBook(b);
-                }}
-                onMouseLeave={() => {
-                  setIsShown(false);
-                  setShownBook(null);
-                }}
-              >
-                <div className="book-cover"></div>
+        <h1 className="books-page-subtitle">Library</h1>
+        <div id="books-display">
+          <div id="bdh1">
+            <div className="shelf">
+              <h1>
+                Read Books <span>{read_books?.length}</span>
+              </h1>
+              <div className="book-shelf">
+                {read_books?.map((b, index) => (
+                  <div
+                    className="book"
+                    onMouseEnter={() => {
+                      setIsShown(true);
+                      setShownBook(b);
+                      changeColor(true, b["Title"]);
+                    }}
+                    onMouseLeave={() => {
+                      setIsShown(false);
+                      setShownBook(null);
+                      changeColor(false);
+                    }}
+                  >
+                    <div className="book-cover" id={b["Title"]}></div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+            <div className="shelf">
+              <h1>
+                To-Read Books <span>{tbr_books?.length}</span>
+              </h1>
+              <div className="book-shelf">
+                {tbr_books?.map((b, index) => (
+                  <div
+                    className="book"
+                    onMouseEnter={() => {
+                      setIsShown(true);
+                      setShownBook(b);
+                      changeColor(true, b["Title"]);
+                    }}
+                    onMouseLeave={() => {
+                      setIsShown(false);
+                      setShownBook(null);
+                      changeColor(false);
+                    }}
+                  >
+                    <div className="book-cover" id={b["Title"]}></div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="ticket">
+          <div id="bdh2">
             {isShown ? (
               <>
                 <h1>{shownBook["Title"]}</h1>
                 <h2>{shownBook["Author"]}</h2>
 
                 <h3>
-                  <span>{shownBook["Number of Pages"] + " pages"}</span>
+                  {shownBook["Number of Pages"]
+                    ? shownBook["Number of Pages"] + " pages"
+                    : ""}
+
                   {shownBook["Date Read"].getFullYear() > 2000 ? (
                     <span>
                       {" ⬩ Read " +
@@ -205,52 +253,10 @@ const Books = () => {
                     </span>
                   ) : (
                     ""
-                  )}{" "}
-                  {shownBook["My Rating"] > 0 ? (
-                    <span>
-                      {" ⬩ My rating " + shownBook["My Rating"] + "★"}
-                    </span>
-                  ) : (
-                    ""
                   )}
-                </h3>
-              </>
-            ) : (
-              ""
-            )}
-          </div>
-        </div>
 
-        <div className="shelf">
-          <h1>
-            To-Read Books <span>{tbr_books?.length}</span>
-          </h1>
-          <div className="book-shelf">
-            {tbr_books?.map((b, index) => (
-              <div
-                className="book"
-                onMouseEnter={() => {
-                  setIsShownTBR(true);
-                  setShownBook(b);
-                }}
-                onMouseLeave={() => {
-                  setIsShownTBR(false);
-                  setShownBook(null);
-                }}
-              >
-                <div className="book-cover"></div>
-              </div>
-            ))}
-          </div>
-          <div className="ticket">
-            {isShownTBR ? (
-              <>
-                <h1>{shownBook["Title"]}</h1>
-                <h2>{shownBook["Author"]}</h2>
-
-                <h3>
-                  <span>{shownBook["Number of Pages"] + " pages"}</span>
-                  {shownBook["Date Added"].getFullYear() > 2000 ? (
+                  {!(shownBook["Date Read"].getFullYear() > 2000) &&
+                  shownBook["Date Added"].getFullYear() > 2000 ? (
                     <span>
                       {" ⬩ Added " +
                         months[shownBook["Date Added"].getMonth()] +
@@ -261,14 +267,49 @@ const Books = () => {
                     ""
                   )}
                 </h3>
+
+                <h4>
+                  {shownBook["My Rating"] > 0
+                    ? Array(shownBook["My Rating"])
+                        .fill(0)
+                        .map(() => "★")
+                    : ""}
+                </h4>
               </>
             ) : (
               ""
             )}
           </div>
+          <div
+            id="cover-blob"
+            style={{
+              backgroundColor: color,
+              boxShadow: "0px 2px 120px 120px " + color.toString(),
+            }}
+          ></div>
         </div>
         <br></br>
         <br></br>
+        <br></br>
+        <br></br> <br></br>
+        <br></br>
+        <div
+          className="banner-2023"
+          onClick={() => navigate("/booksreplay2023")}
+        >
+          <div className="blob"></div> <div className="blob"></div>
+          <div className="blob"></div>
+          <h1 className="one">
+            {"2023 Books Rewind "}
+            <IconContext.Provider
+              value={{
+                className: "arrow",
+              }}
+            >
+              <FaChevronRight />
+            </IconContext.Provider>
+          </h1>
+        </div>
       </div>
     </>
   );

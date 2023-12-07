@@ -50,7 +50,7 @@ const BookView = ({ data }) => {
           <h3>
             {data.book.authors.map((a, index) => (index > 0 ? ", " + a : a))}
           </h3>
-          <h4>{data.book.description}</h4>
+          {/*<h4>{data.book.description}</h4>*/}
           <div className="info">
             <div>
               <p>Released</p>
@@ -146,14 +146,25 @@ const BookView = ({ data }) => {
             ))}
         </div>
 
-        <h1>Review</h1>
-        <p className="review">
-          {data.book.review !== "" ? data.book.review : "No review yet"}
-        </p>
-        <h1>Impressions</h1>
-        {data.book.impressions.map((i) => (
-          <Impression type={i.toLowerCase()} />
-        ))}
+        {data.book.review !== "" ? (
+          <>
+            <h1>Review</h1>
+            <p className="review">{data.book.review}</p>
+          </>
+        ) : (
+          ""
+        )}
+
+        {data.book.impressions.length > 0 && data.book.impressions[0] !== "" ? (
+          <>
+            <h1>Impressions</h1>
+            {data.book.impressions.map((i) => (
+              <Impression type={i.toLowerCase()} />
+            ))}
+          </>
+        ) : (
+          ""
+        )}
       </div>
       <div className="close">
         <img src={close} onClick={(e) => data.on_close()} alt="" />

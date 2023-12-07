@@ -31,11 +31,21 @@
     padding: 2rem;
     border: none;
     background: none;
+    margin-top: 2rem;
+}
+
+.books-page-subtitle {
+    font-size: 3rem;
+    font-family: MainFont;
+    padding: 2rem;
+    border: none;
+    background: none;
+    margin-top: 1rem;
 }
 
 .favourites {
     height: 30rem;
-    width: 96%;
+    width: 80%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -167,6 +177,69 @@
 
 }
 
+.new-favourites {
+    width: 90%;
+
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    .favourite-book {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+        border-radius: 20px;
+        padding: 1rem;
+
+        img {
+            height: 15rem;
+            border-radius: 7px;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-book {
+            width: 7rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            div {
+                display: flex;
+                flex-direction: column;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+                font-family: bookTitleFont;
+            }
+
+            h2 {
+                font-size: 0.9rem;
+                margin-top: 1rem;
+                color: #363636;
+            }
+
+            h3,
+            h4 {
+                opacity: 0.5;
+                font-size: 0.7rem;
+            }
+
+
+        }
+
+    }
+}
+
 .favourite:nth-of-type(1) {
     transform: rotate(-15deg);
     margin-top: 2rem;
@@ -188,11 +261,11 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    width: 70%;
+    width: 100%;
     padding-top: 1rem;
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-family: BookSubTitleFont;
 
         span {
@@ -200,40 +273,7 @@
         }
     }
 
-    .ticket {
-        display: flex;
-        height: 6rem;
-        padding: 0.7rem;
-        border-radius: 10px;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
 
-        h1 {
-            font-size: 1.2rem;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 0.9rem;
-        }
-
-        h3 {
-            font-family: bookSubTitleFont;
-            font-size: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: flex-end;
-
-            gap: 5px;
-
-            span {
-                font-family: bookSubTitleFont;
-                font-size: 1rem;
-            }
-        }
-    }
 
     .book-shelf {
         display: flex;
@@ -242,6 +282,7 @@
         row-gap: 0rem;
         align-items: flex-end;
 
+        width: 100%;
 
         overflow-x: auto;
         overflow-y: hidden;
@@ -329,9 +370,84 @@
     }
 }
 
+#books-display {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 80%;
+    position: relative;
+
+    #bdh1 {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        border-radius: 25px;
+        padding: 1rem 2rem;
+        z-index: 1;
+
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    #bdh2 {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 30%;
+        border-radius: 25px;
+        padding: 2rem;
+        text-align: center;
+        z-index: 1;
+
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+        h1 {
+            font-family: bookSubTitleFont;
+            font-size: 1.7rem;
+
+        }
+
+        h2 {
+            font-family: bookSubTitleFont;
+            font-size: 1rem;
+        }
+
+        h3 {
+            //font-family: bookSubTitleFont;
+            font-size: 1rem;
+            padding-top: 0.5rem;
+        }
+
+        h4 {
+            //font-family: bookSubTitleFont;
+            padding-top: 2rem;
+            font-size: 1.5rem;
+        }
+    }
+
+    #cover-blob {
+        position: absolute;
+        right: 14%;
+        margin-top: 15%;
+        background-color: #fff;
+        box-shadow: 0px 2px 100px 120px #fff;
+
+        z-index: 0;
+    }
+}
+
+
+
 @media only screen and (min-width: 390px) {
     .shelf {
-        width: 90%;
+        width: 100%;
 
         .ticket {
             h1 {

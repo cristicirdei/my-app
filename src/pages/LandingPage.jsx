@@ -31,20 +31,26 @@ const LandingPage = () => {
     <>
       {/* <Header></Header>*/}
 
-      <div className="page landing-padd" style={{ backgroundColor: "#000" }}>
+      <div
+        className="page landing-padd"
+        id="landing-page"
+        style={{ backgroundColor: "#000" }}
+      >
         <div className="square"></div>
         <div className="menu-links left-m">
           <div className="menu">
-            <li className="item">
-              <p className="link-name">Books</p>
-              <IconContext.Provider
-                value={{
-                  className: "icon",
-                }}
-              >
-                <FaBook />
-              </IconContext.Provider>
-            </li>
+            <a className="item" href="/books" rel="noreferrer">
+              <li className="item">
+                <p className="link-name">Books</p>
+                <IconContext.Provider
+                  value={{
+                    className: "icon",
+                  }}
+                >
+                  <FaBook />
+                </IconContext.Provider>
+              </li>
+            </a>
           </div>
         </div>
         <div className="menu-links">

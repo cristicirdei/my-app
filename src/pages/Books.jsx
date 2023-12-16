@@ -1,34 +1,61 @@
 import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
-
-import data from "../resources/goodreads_library_export.csv";
+import Modal from "react-modal";
 
 import { IconContext } from "react-icons";
-import { FaChevronRight } from "react-icons/fa";
+import { BsPen, BsXLg } from "react-icons/bs";
 
-import { useNavigate } from "react-router-dom";
+import data from "../resources/goodreads_library_export.csv";
+import { favourites } from "../utils/favourites";
+import { reviews } from "../utils/reviews";
+
 import Header from "../components/molecules/Header";
+import LibraryBook from "../components/molecules/LibraryBook";
+import FavouriteBook from "../components/molecules/FavouriteBook";
+import ReviewBook from "../components/molecules/ReviewBook";
+
+const read = require("../resources/books thumbnails/example-read.png");
+const unread = require("../resources/books thumbnails/example-unread.png");
+const nonfiction = require("../resources/books thumbnails/nonfiction.png");
+const fiction = require("../resources/books thumbnails/fiction.png");
+const poetry = require("../resources/books thumbnails/poetry.png");
+
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    borderRadius: "25px",
+    width: "90%",
+    height: "80%",
+    backgroundColor: "rgb(255, 255, 255)",
+    boxShadow: "0px 2px 10px 5px rgba(193, 193, 193, 0.5)",
+    border: "1px solid rgba(128, 128, 128, 0.168)",
+    padding: "0",
+    transition: "top 1s",
+  },
+};
+Modal.setAppElement(document.getElementById("root"));
 
 const Books = () => {
-  const navigate = useNavigate();
+  let subtitle;
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = "#f00";
+  }
+  function closeModal() {
+    setIsOpen(false);
+  }
 
-  const [read_books, setReadBooks] = useState();
-  const [tbr_books, setTBRBooks] = useState();
-
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
+  const [books, setBooks] = useState();
+  const [openedReview, setOpenedReview] = useState(null);
 
   useEffect(() => {
     const parceCSV = () => {
@@ -44,19 +71,10 @@ const Books = () => {
             entry["Date Read"] = new Date(entry["Date Read"]);
             return 0;
           });
-          let read_books = data.filter((b) => b["Exclusive Shelf"] === "read");
-          read_books = read_books.sort(
-            (a, b) => b["Date Read"] - a["Date Read"]
-          );
-          setReadBooks(read_books);
 
-          let tbr_books = data.filter(
-            (b) => b["Exclusive Shelf"] === "to-read"
-          );
-          tbr_books = tbr_books.sort(
-            (a, b) => b["Date Added"] - a["Date Added"]
-          );
-          setTBRBooks(tbr_books);
+          let books = data.sort((a, b) => b["Date Added"] - a["Date Added"]);
+          setBooks(books);
+          console.log(books);
         },
       });
     };
@@ -64,235 +82,177 @@ const Books = () => {
 
     return () => {
       // Cleanup function to clear data
-      setReadBooks([]);
-      setTBRBooks([]);
+      setBooks([]);
     };
   }, []);
-
-  useEffect(() => {
-    setBookCovers();
-  });
-
-  const [isShown, setIsShown] = useState(false);
-  const [color, setColor] = useState("#fff");
-  const [shownBook, setShownBook] = useState(false);
-
-  const setBookCovers = () => {
-    const colors = [
-      "#4a7eae",
-      "#f1536c",
-      "#2b292a",
-      "#cba230",
-      "#b2a66a",
-      "#9a7048",
-    ];
-
-    const books = document.getElementsByClassName("book-cover");
-
-    for (let i = 0; i < books.length; i++) {
-      books[i].style.backgroundColor = colors[i % 6];
-    }
-  };
-
-  const changeColor = (change, id = null) => {
-    if (change) {
-      const elem = document.getElementById(id);
-      const bg_color = elem.style.backgroundColor;
-
-      setColor(bg_color);
-      console.log(elem.style, "-", id, "color", bg_color);
-    } else {
-      setColor("#fff");
-    }
-  };
 
   return (
     <>
       <Header></Header>
       <div className="page">
-        <h1 className="books-page-title">Books</h1>
-        <div className="favourites">
-          <h1>favourites</h1>
-          <div className="container">
-            <div
-              className="favourite hoverfavourite"
-              data-hover={"The Complete Stories"}
-              data-hover-after={
-                "by Flannery O'Connor · Southern Gothic · Read in 2023"
-              }
-            >
-              <img
-                className="img"
-                src={require("../resources/book covers/the-complete-stories.jpg")}
-                alt="book cover"
-              ></img>
-              <div className="shadow"></div>
-              <div className="light"></div>
-            </div>
-
-            <div
-              className="favourite hoverfavourite"
-              data-hover={"The Heart Is a Lonely Hunter "}
-              data-hover-after={
-                "by Carson McCullers · Southern Gothic · Re-Read in 2023"
-              }
-            >
-              <img
-                className="img"
-                src={require("../resources/book covers/the-heart-is-a-lonely-hunter.jpg")}
-                alt="book cover"
-              ></img>
-              <div className="shadow"></div>
-              <div className="light"></div>
-            </div>
-
-            <div
-              className="favourite hoverfavourite"
-              data-hover={"One Hundred Years of Solitude "}
-              data-hover-after={
-                "by Gabriel García Márquez · Magic Realism · Read in 2022"
-              }
-            >
-              <img
-                className="img"
-                src={require("../resources/book covers/one-hundred-years-of-solitude.jpg")}
-                alt="book cover"
-              ></img>
-              <div className="shadow"></div>
-              <div className="light"></div>
-            </div>
-          </div>
+        <div className="books-banner">
+          <h1 className="books-page-title">Books</h1>
         </div>
-        {/*<div id="gr_updates_widget">
-          <iframe
-            sandbox="allow-scripts"
-            id="iframe"
-            src="https://goodreads.com/widgets/user_update_widget?height=470&num_updates=5&user=150642989&width=700"
-            width="700"
-            height="470"
-            frameborder="0"
-          ></iframe>
-          <div id="gr_footer">
-            <a href="https://www.goodreads.com/">
-              <img
-                alt="Goodreads: Book reviews, recommendations, and discussion"
-                src="https://s.gr-assets.com/images/layout/goodreads_logo_140.png"
-              />
-            </a>
-          </div>
-            </div>*/}
+
+        <h1 className="books-page-subtitle">Favourites</h1>
+        <div className="content-container" id="favourite-books">
+          {favourites?.map((fav_data, index) => (
+            <FavouriteBook key={index} data={fav_data}></FavouriteBook>
+          ))}
+        </div>
+
+        <h1 className="books-page-subtitle">Reviews</h1>
+        <div className="content-container" id="review-books">
+          {reviews?.map((rev_data, index) => (
+            <ReviewBook
+              key={index}
+              data={rev_data}
+              onClick={(e) => {
+                openModal();
+              }}
+              setOpened={setOpenedReview}
+            ></ReviewBook>
+          ))}
+        </div>
+
         <h1 className="books-page-subtitle">Library</h1>
-        <div id="books-display">
-          <div id="bdh1">
-            <div className="shelf">
-              <h1>
-                Read Books <span>{read_books?.length}</span>
-              </h1>
-              <div className="book-shelf">
-                {read_books?.map((b, index) => (
-                  <div
-                    className="book"
-                    onMouseEnter={() => {
-                      setIsShown(true);
-                      setShownBook(b);
-                      changeColor(true, b["Title"]);
-                    }}
-                    onMouseLeave={() => {
-                      setIsShown(false);
-                      setShownBook(null);
-                      changeColor(false);
-                    }}
-                  >
-                    <div className="book-cover" id={b["Title"]}></div>
-                  </div>
-                ))}
-              </div>
+        <div className="library-legend">
+          <div className="legend-group">
+            {/*<h1>Status</h1>*/}
+            <div className="legend-element">
+              <img className="img" src={unread} alt="book cover"></img>
+              <p>To-Read</p>
             </div>
-            <div className="shelf">
-              <h1>
-                To-Read Books <span>{tbr_books?.length}</span>
-              </h1>
-              <div className="book-shelf">
-                {tbr_books?.map((b, index) => (
-                  <div
-                    className="book"
-                    onMouseEnter={() => {
-                      setIsShown(true);
-                      setShownBook(b);
-                      changeColor(true, b["Title"]);
-                    }}
-                    onMouseLeave={() => {
-                      setIsShown(false);
-                      setShownBook(null);
-                      changeColor(false);
-                    }}
-                  >
-                    <div className="book-cover" id={b["Title"]}></div>
-                  </div>
-                ))}
-              </div>
+            <div className="legend-element">
+              <img className="img" src={read} alt="book cover"></img>
+              <p>Read</p>
             </div>
           </div>
-          <div id="bdh2">
-            {isShown ? (
-              <>
-                <h1>{shownBook["Title"]}</h1>
-                <h2>{shownBook["Author"]}</h2>
+          <h1>+</h1>
+          <div className="legend-group">
+            {/*<h1>Genre</h1>*/}
 
-                <h3>
-                  {shownBook["Number of Pages"]
-                    ? shownBook["Number of Pages"] + " pages"
-                    : ""}
-
-                  {shownBook["Date Read"].getFullYear() > 2000 ? (
-                    <span>
-                      {" ⬩ Read " +
-                        months[shownBook["Date Read"].getMonth()] +
-                        " " +
-                        shownBook["Date Read"].getFullYear()}
-                    </span>
-                  ) : (
-                    ""
-                  )}
-
-                  {!(shownBook["Date Read"].getFullYear() > 2000) &&
-                  shownBook["Date Added"].getFullYear() > 2000 ? (
-                    <span>
-                      {" ⬩ Added " +
-                        months[shownBook["Date Added"].getMonth()] +
-                        " " +
-                        shownBook["Date Added"].getFullYear()}
-                    </span>
-                  ) : (
-                    ""
-                  )}
-                </h3>
-
-                <h4>
-                  {shownBook["My Rating"] > 0
-                    ? Array(shownBook["My Rating"])
-                        .fill(0)
-                        .map(() => "★")
-                    : ""}
-                </h4>
-              </>
-            ) : (
-              ""
-            )}
+            <div className="legend-element">
+              <img className="img" src={fiction} alt="book cover"></img>
+              <p>Fiction</p>
+            </div>
+            <div className="legend-element">
+              <img className="img" src={nonfiction} alt="book cover"></img>
+              <p>Non-Fiction</p>
+            </div>
+            <div className="legend-element">
+              <img className="img" src={poetry} alt="book cover"></img>
+              <p>Poetry</p>
+            </div>
           </div>
-          <div
-            id="cover-blob"
-            style={{
-              backgroundColor: color,
-              boxShadow: "0px 2px 120px 120px " + color.toString(),
-            }}
-          ></div>
         </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br> <br></br>
-        <br></br>
+        <div className="library-filters">
+          <label className="check-container">
+            To-Read
+            <input type="checkbox"></input>
+            <span className="checkmark"></span>
+          </label>
+          <label className="check-container">
+            Read
+            <input type="checkbox"></input>
+            <span className="checkmark"></span>
+          </label>
+          <label className="check-container">
+            Fiction
+            <input type="checkbox"></input>
+            <span className="checkmark"></span>
+          </label>
+          <label className="check-container">
+            Non-Fiction
+            <input type="checkbox"></input>
+            <span className="checkmark"></span>
+          </label>
+          <label className="check-container">
+            Poetry
+            <input type="checkbox"></input>
+            <span className="checkmark"></span>
+          </label>
+          {/*<input type="text" placeholder="Search"></input>*/}
+        </div>
+        <p id="results">
+          {books?.length > 0 ? books?.length + " books" : "0 results"}
+        </p>
+        <div className="content-container" id="library-books">
+          {books?.map((b, index) => (
+            <LibraryBook
+              key={index}
+              data={{
+                title: b["Title"],
+                author: b["Author"],
+                date_read: b["Date Read"],
+                date_added: b["Date Added"],
+                rating: b["My Rating"],
+                pages: b["Number of Pages"],
+                shelf: b["Exclusive Shelf"],
+              }}
+            ></LibraryBook>
+          ))}
+        </div>
+
+        <Modal
+          isOpen={modalIsOpen}
+          onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Modal"
+        >
+          <div className="modal-review">
+            <div id="modal-cover">
+              <div onClick={closeModal}>
+                <IconContext.Provider
+                  value={{
+                    className: "close-modal",
+                  }}
+                >
+                  <BsXLg />
+                </IconContext.Provider>
+              </div>
+              <img
+                className="thumbnail"
+                alt=""
+                src={openedReview?.thumbnail}
+              ></img>
+              <img className="cover" alt="" src={openedReview?.cover}></img>
+              <div className="about-book">
+                <h1>{openedReview?.title}</h1>
+
+                <h2 id="rev-author">
+                  <IconContext.Provider
+                    value={{
+                      className: "small-pencil",
+                    }}
+                  >
+                    <BsPen />
+                  </IconContext.Provider>
+                  {openedReview?.author}
+                </h2>
+
+                {openedReview?.rating > 0 ? (
+                  <h2>
+                    {Array(openedReview?.rating)
+                      .fill(0)
+                      .map(() => "★")}
+                  </h2>
+                ) : (
+                  ""
+                )}
+              </div>
+            </div>
+            <div
+              id="review-content"
+              dangerouslySetInnerHTML={{ __html: openedReview?.review }}
+            >
+              {}
+            </div>
+          </div>
+        </Modal>
+
+        {/*
         <div
           className="banner-2023"
           onClick={() => navigate("/booksreplay2023")}
@@ -309,7 +269,7 @@ const Books = () => {
               <FaChevronRight />
             </IconContext.Provider>
           </h1>
-        </div>
+            </div>*/}
       </div>
     </>
   );

@@ -66,15 +66,6 @@ const Timeline = ({ data }) => {
     );
   };
 
-  const getWeeks2 = (book) => {
-    let s = new Date(Date.parse(book.read.slice(-1)[0].start)).getWeek();
-    let e = new Date(Date.parse(book.read.slice(-1)[0].end)).getWeek();
-    if (s > e) {
-      s = 0;
-    }
-    return [s, e];
-  };
-
   const getWeeks = (book) => {
     let s = quarter_of_month(
       new Date(Date.parse(book.read.slice(-1)[0].start))
@@ -96,9 +87,22 @@ const Timeline = ({ data }) => {
   const first_half = [];
   const second_half = [];
   if (windowSize.current[0] < 840) {
-    books_of_the_year?.map((book) =>
+    /*books_of_the_year?.map((book) =>
       getWeeks(book)[0] > 24 ? second_half.push(book) : first_half.push(book)
-    );
+    );*/
+
+    for (let i = 0; i < books_of_the_year.length; i++) {
+      if (getWeeks(books_of_the_year[i])[0] <= 24) {
+        first_half.push(books_of_the_year[i]);
+      }
+
+      if (
+        getWeeks(books_of_the_year[i])[0] > 24 ||
+        getWeeks(books_of_the_year[i])[1] > 24
+      ) {
+        second_half.push(books_of_the_year[i]);
+      }
+    }
   }
 
   return windowSize.current[0] >= 840 ? (

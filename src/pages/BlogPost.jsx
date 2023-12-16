@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import $ from "jquery";
+import React, { useEffect } from "react";
 
 import { IconContext } from "react-icons";
 import { BsChatRightFill, BsChatSquareQuoteFill } from "react-icons/bs";
@@ -33,7 +32,7 @@ const BlogPost = ({ theme, content }) => {
     <div className="page">
       <div className="blog-cover">
         <div className="banner">
-          <img className="banner-img" src={banner_src}></img>
+          <img className="banner-img" alt="" src={banner_src}></img>
         </div>
         <div
           className="front-page"
@@ -136,7 +135,7 @@ const BlogPost = ({ theme, content }) => {
             id="fig-1"
             style={{ color: primaryColorText, backgroundColor: primaryColor }}
           >
-            <img src={banner_src}></img>
+            <img src={banner_src} alt=""></img>
             <figcaption>
               <span style={{ color: secondaryColor }}>01</span> - Trulli,
               Puglia, Italy.

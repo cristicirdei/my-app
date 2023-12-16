@@ -1,20 +1,8 @@
 import React, { useEffect } from "react";
 
-import { IconContext } from "react-icons";
-import {
-  FaInstagram,
-  FaGoodreads,
-  FaLinkedin,
-  FaGithub,
-  FaUnsplash,
-  FaLastfm,
-  FaBook,
-} from "react-icons/fa";
-
 const Header = () => {
   useEffect(() => {
     function changeCss() {
-      var bodyElement = document.querySelector("body");
       var navElement = document.querySelector("#header");
       if (this.scrollY > 20) {
         /*navElement.style.marginTop = "1rem";

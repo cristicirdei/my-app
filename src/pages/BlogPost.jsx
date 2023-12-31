@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import { IconContext } from "react-icons";
-import { BsChatRightFill, BsChatSquareQuoteFill } from "react-icons/bs";
+import { BsChatRightFill } from "react-icons/bs";
 import banner_src from "../resources/crowd.jpg";
 import TableOfContents from "../components/organisms/TableOfContents";
 
@@ -29,7 +29,7 @@ const BlogPost = ({ theme, content }) => {
     "What would you do if you learn that one thing is not what you thought it is in reality";
 
   return (
-    <div className="page">
+    <div className="page" id="blog-page">
       <div className="blog-cover">
         <div className="banner">
           <img className="banner-img" alt="" src={banner_src}></img>
@@ -86,7 +86,9 @@ const BlogPost = ({ theme, content }) => {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
-          <h3 id="chapter">Chapter</h3>
+          <h3 id="chapter" className="chapter">
+            Chapter
+          </h3>
 
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -96,16 +98,7 @@ const BlogPost = ({ theme, content }) => {
             reprehenderit in voluptate velit esse cillum dolore
           </p>
 
-          <blockquote
-            style={{ backgroundColor: "#fcfcfc", color: secondaryColor }}
-          >
-            <IconContext.Provider
-              value={{
-                className: "quote-icon",
-              }}
-            >
-              <BsChatSquareQuoteFill style={{ color: secondaryColor }} />
-            </IconContext.Provider>
+          <blockquote style={{ color: secondaryColor }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. - marry
             jane
@@ -142,7 +135,9 @@ const BlogPost = ({ theme, content }) => {
             </figcaption>
           </figure>
 
-          <h4 id="subchapter">SubChapter</h4>
+          <h3 id="subchapter" className="subchapter">
+            SubChapter
+          </h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -161,16 +156,7 @@ const BlogPost = ({ theme, content }) => {
             deserunt mollit anim id est laborum.
           </p>
 
-          <blockquote
-            style={{ backgroundColor: "#fcfcfc", color: primaryColor }}
-          >
-            <IconContext.Provider
-              value={{
-                className: "quote-icon",
-              }}
-            >
-              <BsChatSquareQuoteFill style={{ color: primaryColor }} />
-            </IconContext.Provider>
+          <blockquote style={{ color: primaryColor }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. - marry
             jane

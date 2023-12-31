@@ -5,19 +5,9 @@ const Header = () => {
     function changeCss() {
       var navElement = document.querySelector("#header");
       if (this.scrollY > 20) {
-        /*navElement.style.marginTop = "1rem";
-        navElement.style.width = "calc(100% - 2rem)";
-        navElement.style.marginLeft = "1rem";
-        navElement.style.borderRadius = "10px";
-        navElement.style.paddingLeft = "1rem";*/
         navElement.classList.remove("header-down");
         navElement.classList.add("header-up");
       } else {
-        /* navElement.style.marginTop = "0rem";
-        navElement.style.marginLeft = "0rem";
-        navElement.style.width = "100%";
-        navElement.style.borderRadius = "0px";
-        navElement.style.paddingLeft = "2rem";*/
         navElement.classList.remove("header-up");
         navElement.classList.add("header-down");
       }

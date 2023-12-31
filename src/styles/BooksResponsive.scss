@@ -39,203 +39,6 @@
         background: none;
     }
 
-    .favourites {
-        height: 25rem;
-        width: 96%;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        align-self: center;
-        align-items: center;
-
-
-
-
-        h1 {
-            font-size: 4.5rem;
-            font-family: Font2;
-            padding: 0;
-            margin-left: 0rem;
-        }
-
-        .container {
-            display: flex;
-            gap: 2rem;
-            align-content: center;
-            margin-top: -2.5rem;
-
-
-            .favourite:hover {
-                margin-top: -2rem;
-                transform: rotate(0deg);
-                position: relative;
-                top: 0;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-            }
-
-            .favourite {
-                width: fit-content;
-                height: 160px;
-                position: inherit;
-
-
-                .img {
-                    height: 10rem;
-                    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-
-                    border-top-left-radius: 2px;
-                    border-bottom-left-radius: 2px;
-                    border-top-right-radius: 4px;
-                    border-bottom-right-radius: 4px;
-                }
-
-                .shadow {
-                    height: 10rem;
-                    width: 0.5rem;
-                    position: relative;
-                    top: -10.25rem;
-                    left: 0.0rem;
-
-                    background: -webkit-linear-gradient(-40deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.15));
-                }
-
-                .light {
-                    height: 10rem;
-                    width: 0.07rem;
-                    position: relative;
-                    top: -20.25rem;
-                    left: 0.5rem;
-
-                    background: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 0.5));
-                }
-
-            }
-
-
-
-            .hoverfavourite:hover {
-                cursor: pointer;
-            }
-
-            .hoverfavourite:before {
-                content: attr(data-hover);
-                visibility: hidden;
-                opacity: 0;
-                width: 100px;
-                height: fit-content;
-                text-align: center;
-                border-radius: 5px;
-                padding: 0 4px;
-                transition: opacity 1s ease-in-out;
-
-                font-weight: 500;
-
-                position: absolute;
-                z-index: 1;
-                left: 0;
-                top: 132%;
-            }
-
-            .hoverfavourite:after {
-                content: attr(data-hover-after);
-                visibility: hidden;
-                opacity: 0;
-                width: 100px;
-                height: fit-content;
-                text-align: center;
-                border-radius: 5px;
-                padding: 0 4px;
-                transition: opacity 1s ease-in-out;
-
-
-                font-weight: 500;
-                font-size: 0.8rem;
-                color: gray;
-
-                position: absolute;
-                z-index: 1;
-                left: 0;
-                top: 167%;
-            }
-
-            .hoverfavourite:hover:before {
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .hoverfavourite:hover .hoverfavourite:not(:hover) {
-                opacity: 0.5;
-                background-color: aqua;
-
-            }
-
-            .hoverfavourite:hover:after {
-                opacity: 1;
-                visibility: visible;
-            }
-        }
-
-
-    }
-
-
-    .favourite:nth-of-type(1) {
-        transform: rotate(-15deg);
-        margin-top: 2rem;
-        margin-right: -2.5rem;
-    }
-
-    .favourite:nth-of-type(2) {
-        transform: rotate(0deg);
-    }
-
-
-    .favourite:nth-of-type(3) {
-        transform: rotate(15deg);
-        margin-top: 2rem;
-        margin-left: -2.5rem;
-    }
-
-    /* .year-books {
-        height: 33rem;
-        width: 90%;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        align-self: center;
-        align-items: center;
-
-        transition: box-shadow 1s;
-        transition: border 1s;
-        transition: background-color 1s;
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            gap: 0rem;
-            align-content: center;
-            align-items: center;
-            width: 100%;
-        }
-
-        .display {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            transition: width 1s;
-            height: 430px;
-        }
-
-        .move-to-side {
-            width: 16rem;
-            margin-left: 1rem;
-            transition: width 1s;
-        }
-
-
-    }*/
-
     .fade {
         box-shadow: none;
         border: none;
@@ -249,6 +52,7 @@
     .book-view-container {
         height: fit-content;
         width: 110%;
+        max-width: 600px;
         margin: 0;
         padding: 0;
         border-radius: 15px;
@@ -256,8 +60,8 @@
         flex-direction: column;
 
         background-color: #E5E4E2;
-
         color: #000;
+
 
         .close {
             opacity: 0.6;

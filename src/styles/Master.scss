@@ -41,7 +41,7 @@ svg {
 
     border-style: dashed;
 
-    background: rgba(255, 255, 255, 1);
+    //background: rgba(255, 255, 255, 1);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     // border: 1px solid rgba(255, 255, 255, 0.18);
 
@@ -71,7 +71,7 @@ svg {
 
 .yf {
     background-color: rgba(255, 251, 127, 0.1);
-    color: #fffb7f;
+    color: #f4eb02;
 }
 
 .rr {
@@ -100,10 +100,18 @@ svg {
     background-color: rgba(255, 0, 0, 0.1);
 }
 
+.cute {
+    color: #ff00bf;
+    background-color: rgba(255, 0, 191, 0.1);
+}
+
 .liked,
-.disliked {
-    color: rgb(255, 213, 0);
-    background-color: rgba(255, 213, 0, 0.1);
+.disliked,
+.disappointed,
+.mindblowing,
+.insightful {
+    color: rgb(223, 186, 0);
+    background-color: rgba(255, 213, 0, 0.2);
 }
 
 .label {

@@ -31,7 +31,7 @@ const LibraryBook = ({ data }) => {
 
     data.genre === "fiction"
       ? (image_src = fiction_read)
-      : data.genre === "nonfiction"
+      : data.genre === "non-fiction"
       ? (image_src = nonfiction_read)
       : data.genre === "poetry"
       ? (image_src = poetry_read)
@@ -41,7 +41,7 @@ const LibraryBook = ({ data }) => {
     //image_src = unread;
     data.genre === "fiction"
       ? (image_src = fiction_unread)
-      : data.genre === "nonfiction"
+      : data.genre === "non-fiction"
       ? (image_src = nonfiction_unread)
       : data.genre === "poetry"
       ? (image_src = poetry_unread)
@@ -49,19 +49,19 @@ const LibraryBook = ({ data }) => {
   }
 
   let status = "";
-  data.date_read.getFullYear() > 2000
+  data.date_read?.getFullYear() > 2000
     ? (status =
         "Read in " +
         months[data.date_read.getMonth()] +
         " " +
-        data.date_read.getFullYear())
-    : !(data.date_read.getFullYear() > 2000) &&
-      data.date_added.getFullYear() > 2000
+        data.date_read?.getFullYear())
+    : !(data.date_read?.getFullYear() > 2000) &&
+      data.date_added?.getFullYear() > 2000
     ? (status =
         "Added in " +
         months[data.date_added.getMonth()] +
         " " +
-        data.date_added.getFullYear())
+        data.date_added?.getFullYear())
     : (status = "");
 
   return (

@@ -320,7 +320,7 @@
         flex-direction: row;
         gap: 0.5rem;
         width: 24%;
-        min-width: 297px;
+        min-width: 295px;
         position: relative;
 
         background: rgba(255, 255, 255, 0.5);
@@ -355,12 +355,6 @@
                 text-overflow: ellipsis ellipsis;*/
             }
 
-
-            h1:hover {
-                overflow-y: visible;
-                min-height: fit-content;
-                background-color: #ccc;
-            }
 
             h2 {
                 font-size: 0.75rem;

@@ -80,21 +80,75 @@ const BooksReplay2023 = () => {
 
   return (
     <div className="dark col-12">
-      <h1 className="replay-page-title one">Books Rewind '23</h1>
+      <h1 className="replay-page-title one">
+        Reading Wrap-Up <br></br> '23
+      </h1>
 
       <div className="about ">
         <h1>Year in Review</h1>
-        <h2>Reader's Journey</h2>
         <p>
-          If I would <i>examine</i> my past carefully I would probably come
-          across the moment where I first took on the endeavor of reading a
-          book. Years later, I am living in the shadow of that moment.
+          Another year has passed and in the meantime I have read a few books.
         </p>
-        <p>I have always been </p>
-        <h2>Section title</h2>
+
+        <h2>More Real Than Reality Itself</h2>
         <p>
-          <span> book title</span>
+          Of the many great creations of humanity, I hold literary fiction to a
+          place of honour. Our ability to create whole new worlds and the
+          intimate relationships between humans and stories will never cease to
+          amaze me. Although this year’s selection of fiction was feeble, I
+          still managed to find a few titles that I revelled in reading.
+          Probably my favourite has been{" "}
+          <span>Cloud Cuckoo Land • Anthony Doerr</span>. Other books I enjoyed
+          include <span>At Night All Blood is Black • David Diop</span>,{" "}
+          <span>The Song of Achilles • Madeline Miller</span>,{" "}
+          <span>Of Mice and Men • John Steinbeck</span> and, on a different
+          level of experience, <span>Anxious People • Fredrik Backman</span>.
         </p>
+
+        <h2>Making Sense of It All</h2>
+        <p>
+          This year as well, I carried on in my pursuit of learning how to feel
+          and be. Of how to make sense of <i>existence</i> and talk about it. In
+          this endeavour I don’t know a better tool than poetry. Of the people
+          who have graced my readings with their mastery of words are{" "}
+          <span>Ocean Vuong</span>, <span>Jeffrey McDaniel</span>,{" "}
+          <span>Pádraig O’Tuama</span> and not lastly <span>Kahlil Gibran</span>
+          .
+        </p>
+
+        <h2>Getting Hit in the Face by Reality</h2>
+        <p>
+          <i>Pandora’s box has been opened. </i>Non-fiction has taken a
+          significant amount of my reading time this year. If up until recently
+          I have selected my non-fiction books according to my interests and
+          subjects that I found utterly fascinating, like anthropology,
+          astronomy, linguistics or ancient literature, this year I have, for no
+          particular reason, focused on politics. In my unending journey of
+          learning I touched subjects as race:{" "}
+          <span>The Fire Next Time • James Baldwin</span>,{" "}
+          <span>The New Age of Empire • Kehinde Andrews</span>; feminism:{" "}
+          <span>The Will to Change • bell hooks</span>,{" "}
+          <span>Feminism Is for Everybody • bell hooks</span>; the Palestinian
+          Struggle: <span>Gaza in Crisis • Noam Chomsky & Ilan Pappé</span>
+          {", "}
+          <span>On Palestine • Noam Chomsky & Ilan Pappé</span>; political
+          ideology: <span>The Principles of Communism • Friedrich Engels</span>,{" "}
+          <span>How to Spot a Fascist • Umberto Eco</span>,{" "}
+          <span>Profit Over People • Noam Chomsky</span>. While reading these
+          books I have also extended my <i>to-be-read</i> list so in consequence
+          I can only expect that my readings on politics and social issues will
+          increase.
+        </p>
+
+        <h2>Wrapping It Up</h2>
+        <p>
+          In terms of books, 2023 has been a good year. I delighted in reading,
+          I have learned and matured. I have gained insights into how to make
+          the most out of my time spent reading and I can’t wait to employ them
+          in the next year.
+        </p>
+        <br></br>
+        <p>Too little time. Too many books to read. To 2024.</p>
       </div>
 
       <div className={"year-books "}>
@@ -128,9 +182,9 @@ const BooksReplay2023 = () => {
             <div className="goal one">
               <h2>30</h2>
               <h2>{">"}</h2>
-              <h2>39</h2>
+              <h2>40</h2>
             </div>
-            <p className="upper">9 books above set goal</p>
+            <p className="upper">10 books read above the set goal</p>
           </li>
 
           <li className="white reveal">
@@ -157,7 +211,7 @@ const BooksReplay2023 = () => {
           </li>
 
           <li className="white reveal">
-            <h1 className="black-text">Genres Timeline</h1>
+            <h1 className="black-text">Genres Over the Year</h1>
             <div className="g-y">
               {data?.genresPerMonth.map((g, index) => (
                 <div className="g-m">
@@ -260,40 +314,64 @@ const BooksReplay2023 = () => {
 
       {
         <ol className="brp">
-          <li>
-            <p className="pink-text">64 pages</p>
+          <li style={{ backgroundColor: "#FD3C00", color: "#2B292A" }}>
             <h1>
-              Shortest Book <span className="pink-text">The Giving Tree</span>
+              First Book
+              <span className="r-ent white-text"> The Giving Tree</span>
             </h1>
             <h2>Shel Silverstein</h2>
           </li>
 
+          <li style={{ backgroundColor: "#FE318F", color: "#2B292A" }}>
+            <h1>
+              Last Book
+              <span className="l-ent white-text"> A Christmas Carol</span>
+            </h1>
+            <h2>Charles Dickens</h2>
+          </li>
+
           <li>
-            <p className="orange-text">555 pages</p>
+            <p className="pink-text">7 pages</p>
+            <h1>
+              Shortest Book{" "}
+              <span className="r-ent pink-text">Why Socialism</span>
+            </h1>
+            <h2>Albert Einstein</h2>
+          </li>
+
+          <li>
+            <p className="orange-text">608 pages</p>
             <h1>
               Longest Book{" "}
-              <span className="orange-text">The Complete Stories</span>
+              <span className="l-ent orange-text">Ereticii Dunei</span>
             </h1>
-            <h2>Flannery O'Connor</h2>
+            <h2>Frank Herbert</h2>
           </li>
 
           <li>
             <h1>
               Favourite Book
-              <span className="orange-text">The New Age of Empire</span>
+              <span className="r-ent orange-text"> Cloud Cuckoo Land</span>
             </h1>
-            <h2>Kehinde Andrews</h2>
+            <h2>Anthony Doerr</h2>
           </li>
 
           <li>
             <h1>
               Least Favourite Book
-              <span className="pink-text"> A Psalm for the Wild-Built</span>
+              <span className="l-ent pink-text">
+                {" "}
+                A Psalm for the Wild-Built
+              </span>
             </h1>
             <h2>Becky Chambers</h2>
           </li>
         </ol>
       }
+
+      <h1 className="replay-page-title one" style={{ marginTop: "5rem" }}>
+        See you in 2024
+      </h1>
     </div>
   );
 };

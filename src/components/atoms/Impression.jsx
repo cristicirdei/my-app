@@ -8,6 +8,14 @@ const Impression = ({ type }) => {
       ? "👍 Liked"
       : type === "disliked"
       ? "👎 Disliked"
+      : type === "mindblowing"
+      ? "🤯 Mind-blowing"
+      : type === "insightful"
+      ? "💡 Insightful"
+      : type === "cute"
+      ? "💗 Cute"
+      : type === "disappointed"
+      ? "🫠 Disappointed"
       : "";
 
   return (

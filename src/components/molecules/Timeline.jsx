@@ -86,7 +86,7 @@ const Timeline = ({ data }) => {
 
   const first_half = [];
   const second_half = [];
-  if (windowSize.current[0] < 840) {
+  if (windowSize.current[0] < 3040) {
     /*books_of_the_year?.map((book) =>
       getWeeks(book)[0] > 24 ? second_half.push(book) : first_half.push(book)
     );*/
@@ -105,7 +105,7 @@ const Timeline = ({ data }) => {
     }
   }
 
-  return windowSize.current[0] >= 840 ? (
+  return windowSize.current[0] >= 3040 ? (
     <table className={"timeline"}>
       <thead>
         <tr>

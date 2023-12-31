@@ -55,7 +55,15 @@ const Books = () => {
   }
 
   const [books, setBooks] = useState();
+  const [displayBooks, setDisplayBooks] = useState();
   const [openedReview, setOpenedReview] = useState(null);
+  const [filters, setFilters] = useState([]);
+
+  const toggleFilter = (filter) => {
+    filters?.some((f) => f === filter)
+      ? setFilters(filters.filter((item) => item !== filter))
+      : setFilters([...filters, filter]);
+  };
 
   useEffect(() => {
     const parceCSV = () => {
@@ -69,22 +77,70 @@ const Books = () => {
           data.map((entry) => {
             entry["Date Added"] = new Date(entry["Date Added"]);
             entry["Date Read"] = new Date(entry["Date Read"]);
-            return 0;
+
+            let shelves = entry["Bookshelves"]?.split(" ");
+
+            if (shelves?.find((g) => g === "fiction")) {
+              entry["Genre"] = "fiction";
+            }
+
+            if (shelves?.find((g) => g === "poetry")) {
+              entry["Genre"] = "poetry";
+            }
+
+            if (shelves?.find((g) => g === "non-fiction")) {
+              entry["Genre"] = "non-fiction";
+            }
+
+            return entry;
           });
 
           let books = data.sort((a, b) => b["Date Added"] - a["Date Added"]);
           setBooks(books);
-          console.log(books);
+          setDisplayBooks(books);
         },
       });
     };
     parceCSV();
+    console.log(books);
 
     return () => {
       // Cleanup function to clear data
       setBooks([]);
     };
+
+    // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    let db = [];
+
+    if (filters.includes("read") || filters.includes("to-read")) {
+      db = books?.filter((b) => filters.includes(b["Exclusive Shelf"]));
+    } else {
+      db = structuredClone(books);
+    }
+
+    if (
+      filters.includes("poetry") ||
+      filters.includes("fiction") ||
+      filters.includes("non-fiction")
+    ) {
+      db = db?.filter((b) => filters.includes(b["Genre"]));
+    }
+
+    db?.sort((a, b) => b["Date Added"] - a["Date Added"]);
+
+    setDisplayBooks(db);
+
+    console.log(displayBooks);
+
+    /* return () => {
+      setDisplayBooks([]);
+    };*/
+
+    // eslint-disable-next-line
+  }, [filters]);
 
   return (
     <>
@@ -149,36 +205,53 @@ const Books = () => {
         <div className="library-filters">
           <label className="check-container">
             To-Read
-            <input type="checkbox"></input>
+            <input
+              type="checkbox"
+              onClick={(e) => toggleFilter("to-read")}
+            ></input>
             <span className="checkmark"></span>
           </label>
           <label className="check-container">
             Read
-            <input type="checkbox"></input>
+            <input
+              type="checkbox"
+              onClick={(e) => toggleFilter("read")}
+            ></input>
             <span className="checkmark"></span>
           </label>
           <label className="check-container">
             Fiction
-            <input type="checkbox"></input>
+            <input
+              type="checkbox"
+              onClick={(e) => toggleFilter("fiction")}
+            ></input>
             <span className="checkmark"></span>
           </label>
           <label className="check-container">
             Non-Fiction
-            <input type="checkbox"></input>
+            <input
+              type="checkbox"
+              onClick={(e) => toggleFilter("non-fiction")}
+            ></input>
             <span className="checkmark"></span>
           </label>
           <label className="check-container">
             Poetry
-            <input type="checkbox"></input>
+            <input
+              type="checkbox"
+              onClick={(e) => toggleFilter("poetry")}
+            ></input>
             <span className="checkmark"></span>
           </label>
           {/*<input type="text" placeholder="Search"></input>*/}
         </div>
         <p id="results">
-          {books?.length > 0 ? books?.length + " books" : "0 results"}
+          {displayBooks?.length > 0
+            ? displayBooks?.length + " books"
+            : "0 results"}
         </p>
         <div className="content-container" id="library-books">
-          {books?.map((b, index) => (
+          {displayBooks?.map((b, index) => (
             <LibraryBook
               key={index}
               data={{
@@ -189,6 +262,7 @@ const Books = () => {
                 rating: b["My Rating"],
                 pages: b["Number of Pages"],
                 shelf: b["Exclusive Shelf"],
+                genre: b["Genre"],
               }}
             ></LibraryBook>
           ))}

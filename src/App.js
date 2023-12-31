@@ -29,7 +29,7 @@ function App() {
           <Route exact path="/" element={<LandingPage />} />
           <Route exact path="/ds" element={<DesignSystem />} />
           <Route exact path="/books" element={<Books />} />
-          <Route exact path="/booksreplay2023" element={<BooksReplay2023 />} />
+          <Route exact path="/wrapup2023" element={<BooksReplay2023 />} />
           <Route exact path="/blogpost" element={<BlogPost />} />
         </Routes>
       </BrowserRouter>

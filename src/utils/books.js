@@ -38,7 +38,7 @@ export const books = [
       "Young Adult",
       "Contemporary",
     ],
-    read: [{ start: `2023-01-7`, end: `2023-01-10` }],
+    read: [{ start: `2023-01-07`, end: `2023-01-10` }],
     rating: 4,
     review: "",
     impressions: ["Cute"],

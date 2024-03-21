@@ -42,6 +42,7 @@
 
     display: flex;
     align-items: center;
+    position: relative;
 
     margin-top: 3rem;
     background-color: #00420d;
@@ -56,6 +57,51 @@
     }
 
 }
+
+.banner-links {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    display: flex;
+    gap: 5px;
+
+
+    .banner-link {
+        display: flex;
+        align-items: center;
+
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 3px;
+        border-radius: 5px;
+
+        .icon {
+            color: rgba(255, 255, 255, 0.7);
+            height: 20px;
+        }
+
+        .link-name {
+            white-space: nowrap;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            visibility: hidden;
+            max-width: 0;
+            transition: max-width 0.5s;
+        }
+    }
+
+    .banner-link:hover {
+
+
+        .link-name {
+            white-space: nowrap;
+            visibility: visible;
+            max-width: 8rem;
+            transition: max-width 0.5s;
+        }
+    }
+}
+
 
 .books-page-subtitle {
     width: 80%;

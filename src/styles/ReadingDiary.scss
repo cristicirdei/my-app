@@ -1,0 +1,768 @@
+@import "Master";
+
+@font-face {
+    font-family: mainFont;
+    src: url("../resources/fonts/Athelas-Regular.ttf");
+}
+
+@font-face {
+    font-family: bookTitleFont;
+    src: url("../resources/fonts/Vollkorn-Bold.ttf");
+}
+
+@font-face {
+    font-family: bookSubTitleFont;
+    src: url("../resources/fonts/Vollkorn-Semibold.ttf");
+}
+
+@font-face {
+    font-family: bookDetailsFont;
+    src: url("../resources/fonts/Vollkorn-Regular.ttf");
+}
+
+@font-face {
+    font-family: Font2;
+    src: url("../resources/fonts/Sinistre-SÔÇáCaroline.otf");
+}
+
+@font-face {
+    font-family: RobotoBold;
+    src: url("../resources/fonts/Roboto-Bold.ttf");
+}
+
+@font-face {
+    font-family: RobotoMedium;
+    src: url("../resources/fonts/Roboto-Medium.ttf");
+}
+
+.diary-banner {
+    height: 20rem;
+    background-color: #5800dd;
+    background-image: url("../resources/diary-cover.png");
+}
+
+
+.diary-container {
+    min-width: 80%;
+    overflow-y: scroll;
+    padding: 10px;
+    flex-wrap: nowrap;
+
+}
+
+.books-page-subtitle {
+    width: 80%;
+    font-size: 1.5rem;
+    font-family: RobotoBold;
+    border: none;
+    background: none;
+    text-align: start;
+    padding: 0.5rem 1rem;
+    margin-top: 5rem;
+}
+
+.content-container {
+    width: 80%;
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+
+
+    .favourite-book {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        /* backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.18);*/
+
+        border-radius: 20px;
+        padding: 1rem;
+        //z-index: 1;
+
+        img {
+            height: 12rem;
+            border-radius: 7px;
+
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .about-book {
+            width: 9rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            div {
+                display: flex;
+                flex-direction: column;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+                font-family: RobotoBold;
+                line-height: 90%;
+                padding-top: 5px;
+            }
+
+            h2 {
+                font-size: 0.9rem;
+                margin-top: 1rem;
+
+            }
+
+            h3,
+            h4 {
+                opacity: 0.5;
+                font-size: 0.7rem;
+            }
+
+
+        }
+
+    }
+
+    .review-book {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        position: relative;
+
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        padding: 1rem;
+
+        .thumbnail {
+            height: 12rem;
+            border-radius: 7px;
+
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .about-book {
+            width: 12rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h1 {
+                font-size: 1.3rem;
+                font-family: RobotoBold;
+                line-height: 90%;
+            }
+
+            h2 {
+                font-size: 0.9rem;
+                margin-top: 1rem;
+
+            }
+        }
+
+
+
+    }
+
+    .review-book:hover {
+        cursor: pointer;
+    }
+
+    .fv-blob {
+        position: absolute;
+        right: 48%;
+        margin-top: 9%;
+        background-color: #ffffff;
+        box-shadow: 0px 2px 60px 90px #ffffff;
+
+        z-index: 0;
+    }
+
+    .book {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        width: 24%;
+        min-width: 295px;
+        position: relative;
+
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+        border-radius: 20px;
+        padding: 0.5rem;
+
+        img {
+            height: 5rem;
+            border-radius: 12px;
+        }
+
+        .about-book {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            div {
+                display: flex;
+                flex-direction: column;
+            }
+
+            h1 {
+                font-size: 0.9rem;
+                font-family: RobotoBold;
+                line-height: 90%;
+                padding-top: 5px;
+
+                /* max-height: 25px;
+                overflow-y: hidden;
+                text-overflow: ellipsis ellipsis;*/
+            }
+
+
+            h2 {
+                font-size: 0.75rem;
+            }
+
+            h3,
+            h4 {
+                opacity: 0.5;
+                font-size: 0.7rem;
+            }
+        }
+    }
+}
+
+.diary-book {
+    display: flex;
+    flex-direction: column;
+
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    border-radius: 20px;
+    max-width: 23rem;
+    height: fit-content;
+
+    .intro {
+        display: flex;
+        flex-direction: column;
+        height: 17.7rem;
+    }
+
+    .binfo {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        padding: 1.5rem;
+        height: 11rem;
+
+        img {
+            height: 8rem;
+            border-radius: 7px;
+
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-book {
+            width: 15rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            div {
+                display: flex;
+                flex-direction: column;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                font-family: BookTitleFont;
+                line-height: 90%;
+                padding-top: 5px;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+                font-family: BookSubtitleFont;
+                line-height: 90%;
+                padding-top: 5px;
+            }
+
+            h3,
+            h4 {
+                opacity: 0.8;
+                font-size: 1rem;
+                margin-top: 1rem;
+            }
+
+
+        }
+    }
+
+    .labels {
+        margin-top: -0.7rem;
+        padding: 0 1.5rem;
+        font-size: 0.75rem;
+        margin-bottom: 1.5rem;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3px;
+
+        span {
+            background-color: #dcdcdc50;
+            color: #9f9f9f;
+            border-radius: 6px;
+            padding: 2px 4px;
+            // border: 1px solid #9f9f9f;
+        }
+
+        span:nth-of-type(2) {
+            background-color: #e96c2440;
+            color: #e96c24;
+            border: 1px solid #e96c24;
+        }
+
+        span:nth-of-type(1) {
+            background-color: #f2e74c40;
+            color: #f1bf28;
+            border: 1px solid #f1bf28;
+        }
+
+        span:nth-of-type(3) {
+            background-color: #9348f540;
+            color: #a661ff;
+            border: 1px solid #a661ff;
+        }
+
+        .purple-l {
+            color: #a661ff;
+        }
+
+        .orange-l {
+            color: #e96c24;
+        }
+
+        .yellow-l {
+            color: #f1bf28;
+        }
+    }
+
+    .motivation {
+        margin-top: 0.5rem;
+        padding: 0 1.5rem;
+        margin-bottom: 1.5rem;
+        margin-top: -0.8rem;
+        font-size: 0.75rem;
+        color: #9f9f9f;
+
+
+    }
+
+    .icon {
+        width: 0.7rem;
+        height: 0.65rem;
+
+    }
+
+    .reading-progress {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 2.5rem;
+        border-top: 1px solid rgb(220, 220, 220);
+
+        .progress-bar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            .bar {
+                width: 90%;
+                height: 10px;
+                background-color: #fff;
+                border: 1px solid #dcdcdc;
+                border-radius: 5px;
+
+                .progress {
+                    height: 9px;
+                    background-color: orangered;
+                    border-radius: 5px;
+                    margin-top: -0.5px;
+                    margin-left: -0.5px;
+                }
+            }
+
+            p {
+                font-size: 0.7rem;
+                width: 10%;
+                padding-left: 7px;
+                opacity: 0.5;
+            }
+        }
+
+        .extremity {
+            font-size: 1.1rem;
+            font-family: RobotoRegular;
+            line-height: 90%;
+        }
+
+        .diary {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+
+
+            width: 90%;
+            margin-left: 0.5rem;
+            padding: 1rem 0;
+
+            border-left: 5px solid rgb(235, 235, 235);
+
+
+            .entry {
+                font-size: 1rem;
+                color: rgb(98, 98, 98);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                position: relative;
+
+                .p1 {
+                    .dot {
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 10px;
+                        background-color: orangered;
+                        ;
+                        border: 4px solid #fff;
+                        position: absolute;
+                        left: -10px;
+                        margin-right: 1rem;
+                    }
+
+                    p {
+                        font-size: 0.8rem;
+                        margin-left: 1rem;
+
+                        span {
+                            font-weight: bold;
+                            border: 3px solid orangered;
+                            border-radius: 10px;
+                            padding: 3px 6px;
+                            width: fit-content;
+                            color: orangered;
+                            margin-right: 0.5rem;
+                        }
+                    }
+                }
+
+                .p2 {
+
+                    margin: 15px 25px 0 25px;
+                    font-size: 0.8rem;
+                    color: black;
+                }
+
+            }
+
+
+        }
+    }
+
+    .closed-progress {
+        /* visibility: hidden;
+        height: 0;
+        transition: height 1s;*/
+        max-height: 0;
+        overflow-y: hidden;
+        transition-property: all;
+        transition-duration: .5s;
+        transition-timing-function: cubic-bezier(1, 1, 1, 1);
+    }
+
+    .opened-progress {
+        /* visibility: visible;
+        height: fit-content;
+        transition: height 1s;*/
+        overflow-y: hidden;
+        max-height: 50rem;
+        /* approximate max height */
+        transition-property: all;
+        transition-duration: .5s;
+        // transition-timing-function: cubic-bezier(1, 1, 1, 1);
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .plus {
+        width: 3rem;
+        height: 3rem;
+        color: orangered;
+        margin-left: -13.5px;
+        margin-top: -10px;
+    }
+
+    .plus:hover {
+        cursor: pointer;
+    }
+
+    .closed-add {
+        max-height: 0;
+        // visibility: hidden;
+        padding: 0;
+        overflow-y: hidden;
+        transition-property: all;
+        transition-duration: .5s;
+        transition-timing-function: cubic-bezier(1, 1, 1, 1);
+    }
+
+    .opened-add {
+        overflow-y: hidden;
+        // visibility: visible;
+        max-height: 17rem;
+        padding: 1rem;
+        transition-property: all;
+        transition-duration: .5s;
+    }
+
+    .spin {
+        rotate: 45deg;
+    }
+
+    .add-container {
+        background-color: orangered;
+        // box-shadow: inset 5px 5px 150px orangered;
+
+        width: 100%;
+        border-radius: 15px;
+        //padding: 1rem;
+        // height: fit-content;
+
+        display: flex;
+        flex-direction: column;
+
+        .condensed {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .cell {
+                display: flex;
+                flex-direction: column;
+                width: 48%;
+            }
+
+
+        }
+
+        label {
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-family: RobotoRegular;
+        }
+
+        input,
+        select {
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            height: 1.5rem;
+            margin-bottom: 0.5rem;
+            padding: 0 5px;
+            background-color: #ffffff;
+            color: orangered;
+        }
+
+        input[type="submit"] {
+            margin-top: 1rem;
+            height: 2rem;
+
+        }
+
+        input[type="submit"]:hover {
+            cursor: pointer;
+            box-shadow: 1px 1px 15px #fff;
+
+        }
+
+
+    }
+
+    .toggle-bar {
+        width: 15%;
+        height: 5px;
+        background-color: #d1d1d1;
+        border: 1px solid #dcdcdc;
+        border-radius: 5px;
+        align-self: center;
+        margin-bottom: 1rem;
+        margin-top: -1rem;
+    }
+
+    .toggle-bar:hover {
+        cursor: pointer;
+    }
+}
+
+.calendar-container {
+    min-width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-radius: 20px;
+    padding: 2rem 1rem 2rem 0;
+
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    .calendar-head {
+        width: 61.75rem;
+        display: flex;
+        justify-content: space-between;
+
+        p {
+            width: 7.69%;
+            text-align: start;
+            padding-left: 5px;
+            font-family: RobotoRegular;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+    }
+
+    .days {
+        height: 7.2rem;
+        width: 4.75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-right: 5px;
+        font-size: 0.8rem;
+        font-family: RobotoRegular;
+        text-align: end;
+        opacity: 0.5;
+    }
+
+    .calendar-month {
+        height: 7.2rem;
+        width: 61.75rem;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 2px;
+
+        .calendar-day {
+            height: 0.9rem;
+            width: 0.9rem;
+            border-radius: 2px;
+        }
+
+        .level-zero {
+            background-color: #fff;
+        }
+
+        .level-one {
+            background-color: #ffffdd;
+        }
+
+        .level-two {
+            background-color: #fff099;
+        }
+
+        .level-three {
+            background-color: #ffe880;
+        }
+
+        .level-four {
+            background-color: #ffd94d;
+        }
+
+        .level-five {
+            background-color: #ffca1a;
+        }
+    }
+
+    .legend {
+        height: fit-content;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding-left: 5rem;
+        padding-top: 1rem;
+
+        p {
+            margin-right: 10px;
+            opacity: 0.5;
+        }
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .diary-container {
+        width: 90%;
+        overflow-y: scroll;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+    }
+
+    .diary-book {
+        max-width: 19.5rem;
+
+        .intro {
+            height: fit-content;
+        }
+    }
+
+    .diary-banner {
+        margin-bottom: -2rem;
+    }
+
+    .calendar-container {
+        width: 80%;
+        height: fit-content;
+        overflow-x: scroll;
+
+        .days {
+            margin-left: -1rem;
+        }
+
+        .calendar-head {
+            margin-left: -1rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .calendar-container {
+        width: 80%;
+        height: fit-content;
+        overflow-x: scroll;
+
+        .days {
+            margin-left: -1rem;
+        }
+
+        .calendar-head {
+            margin-left: -1rem;
+        }
+
+        .legend {
+            padding-left: 4rem;
+        }
+    }
+}

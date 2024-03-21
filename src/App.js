@@ -10,6 +10,7 @@ import "./styles/Master.scss";
 import "./styles/Landing.scss";
 import "./styles/BookView.scss";
 import "./styles/Books.scss";
+import "./styles/ReadingDiary.scss";
 import "./styles/BooksResponsive.scss";
 import "./styles/Stats.scss";
 import "./styles/BlogPost.scss";
@@ -20,6 +21,7 @@ import DesignSystem from "./pages/DesignSystem";
 import Books from "./pages/Books";
 import BooksReplay2023 from "./pages/BooksReplay2023";
 import BlogPost from "./pages/BlogPost";
+import ReadingDiary from "./pages/ReadingDiary";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
           <Route exact path="/ds" element={<DesignSystem />} />
           <Route exact path="/books" element={<Books />} />
           <Route exact path="/wrapup2023" element={<BooksReplay2023 />} />
+
+          <Route exact path="/readingdiary" element={<ReadingDiary />} />
           <Route exact path="/blogpost" element={<BlogPost />} />
         </Routes>
       </BrowserRouter>

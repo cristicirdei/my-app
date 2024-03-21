@@ -3,7 +3,9 @@ import Papa from "papaparse";
 import Modal from "react-modal";
 
 import { IconContext } from "react-icons";
-import { BsPen, BsXLg } from "react-icons/bs";
+import { BsPen, BsXLg, BsJournalBookmarkFill } from "react-icons/bs";
+import { FaGoodreads } from "react-icons/fa";
+import { FaChartPie } from "react-icons/fa6";
 
 import data from "../resources/goodreads_library_export.csv";
 import { favourites } from "../utils/favourites";
@@ -148,6 +150,42 @@ const Books = () => {
       <div className="page">
         <div className="books-banner">
           <h1 className="books-page-title">Books</h1>
+          <div className="banner-links">
+            <a className="banner-link" href="/wrapup2023" rel="noreferrer">
+              <p className="link-name">2023 Wrap Up</p>
+              <IconContext.Provider
+                value={{
+                  className: "icon",
+                }}
+              >
+                <FaChartPie />
+              </IconContext.Provider>
+            </a>
+            <a className="banner-link" href="/readingdiary" rel="noreferrer">
+              <p className="link-name">Diary</p>
+              <IconContext.Provider
+                value={{
+                  className: "icon",
+                }}
+              >
+                <BsJournalBookmarkFill />
+              </IconContext.Provider>
+            </a>
+            <a
+              className="banner-link"
+              href="https://goodreads.com/user/show/150642989"
+              rel="noreferrer"
+            >
+              <p className="link-name">Goodreads</p>
+              <IconContext.Provider
+                value={{
+                  className: "icon",
+                }}
+              >
+                <FaGoodreads />
+              </IconContext.Provider>
+            </a>
+          </div>
         </div>
 
         <h1 className="books-page-subtitle">Favourites</h1>
